@@ -1,0 +1,246 @@
+/* =============================================================================
+   DESIGN TOKENS
+   =============================================================================
+
+   Two layers, and the difference matters:
+
+   LAYER 1 — First American brand tokens.
+     Mirrored verbatim from the product brain repo:
+       docs/brand-tokens/tokens.md  (the source of truth)
+       packages/brand/src/tokens.css
+     Those were extracted from the public marketing site, so they are PROVISIONAL:
+     real brand colours, but not the internal product design system. If a product
+     design system exists, it wins and these get replaced.
+
+     Do not invent a value in this layer. If it isn't in tokens.md, it doesn't
+     belong here.
+
+   LAYER 2 — Product tokens (ours).
+     The brand set gives colour, type and breakpoints. It gives NO spacing scale,
+     NO elevation, NO component specs, NO dark mode. A product needs all of those,
+     so we defined them — and kept them separate so nobody mistakes our decisions
+     for First American's.
+
+   LAYER 3 — Semantic aliases.
+     Components never reach for a raw brand colour. They ask for a role:
+     --surface, --text-muted, --border-strong. Swap the brand layer for the real
+     design system later and only this file changes.
+
+   That last rule is the whole point. One colour changes in one place.
+   ============================================================================= */
+
+:root {
+  /* ==========================================================================
+     LAYER 1 — FIRST AMERICAN BRAND (provisional, from firstam.com)
+     ========================================================================== */
+
+  /* --- Brand -------------------------------------------------------------- */
+  --fa-blue: rgb(1, 58, 111);
+  --fa-cyan: #4eade1;
+  --fa-white: rgb(255, 255, 255);
+  --fa-black: rgb(0, 0, 0);
+
+  /* --- Action -------------------------------------------------------------
+     The live site hardcodes this rather than naming it. Flagged for the design
+     system owner. We name it here because a product cannot hardcode its primary
+     action colour in forty places. */
+  --fa-action: rgb(0, 117, 195);
+
+  /* --- Semantic ------------------------------------------------------------ */
+  --fa-green: rgb(0, 166, 81);
+  --fa-red: rgb(230, 46, 31);
+  --fa-yellow: rgb(255, 204, 51);
+  --fa-orange: rgb(242, 101, 34);
+  --fa-purple: rgb(105, 31, 110);
+
+  /* --- Neutral ------------------------------------------------------------- */
+  --fa-grey: rgb(128, 128, 128);
+
+  /* --- Blue ramp -----------------------------------------------------------
+     Use these. Never invent an intermediate blue. */
+  --fa-blue-shade-900: rgb(0, 6, 11);
+  --fa-blue-shade-800: rgb(0, 12, 22);
+  --fa-blue-shade-700: rgb(0, 17, 33);
+  --fa-blue-shade-600: rgb(0, 23, 44);
+  --fa-blue-shade-500: rgb(0, 29, 55);
+  --fa-blue-shade-400: rgb(1, 35, 67);
+  --fa-blue-shade-300: rgb(1, 40, 77);
+  --fa-blue-shade-200: rgb(1, 46, 89);
+  --fa-blue-shade-100: rgb(1, 52, 100);
+  --fa-blue-tint-100: rgb(27, 78, 126);
+  --fa-blue-tint-200: rgb(52, 97, 140);
+  --fa-blue-tint-500: rgb(128, 157, 183);
+  --fa-blue-tint-900: rgb(230, 236, 241);
+
+  /* --- Neutral ramp endpoints ---------------------------------------------- */
+  --fa-neutral-tint-900: rgb(230, 232, 233);
+  --fa-neutral-shade-900: rgb(0, 2, 3);
+
+  /* --- Typography ----------------------------------------------------------
+     Figtree, 16px base, 1.2 modular scale. The scale below is derived from the
+     ratio rather than picked by eye — that is why the numbers look odd. */
+  --fa-font-primary: "Figtree", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --fa-text-base-size: 1rem;
+  --fa-text-scale-ratio: 1.2;
+
+  /* --- Breakpoints ---------------------------------------------------------
+     Use these, not the --bs-* Bootstrap set on the live site: those are offset
+     by one step and are a trap. (Documented here for reference; media queries
+     cannot read custom properties, so the literals are repeated in app.css.) */
+  --fa-breakpoint-xs: 480px;
+  --fa-breakpoint-sm: 768px;
+  --fa-breakpoint-md: 1024px;
+  --fa-breakpoint-lg: 1440px;
+  --fa-breakpoint-xlg: 1920px;
+
+  /* --- Shape ---------------------------------------------------------------
+     25px is the marketing site's pill button. It is right for a landing page
+     hero and wrong for a 32px-tall control in a dense table, so Layer 2 adds a
+     control radius alongside it rather than overriding it. */
+  --fa-radius-pill: 25px;
+
+  /* ==========================================================================
+     LAYER 2 — PRODUCT TOKENS (ours, not First American's)
+     ========================================================================== */
+
+  /* --- Type scale — 16px base × 1.2 ---------------------------------------- */
+  --text-xs: 0.694rem;   /* 11.1px — uppercase eyebrow labels only */
+  --text-sm: 0.833rem;   /* 13.3px — table body, secondary UI */
+  --text-md: 1rem;       /* 16px   — base */
+  --text-lg: 1.2rem;     /* 19.2px */
+  --text-xl: 1.44rem;    /* 23px   — page titles */
+  --text-2xl: 1.728rem;  /* 27.6px — stat values */
+  --text-3xl: 2.074rem;  /* 33.2px */
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  --leading-tight: 1.15;
+  --leading-snug: 1.35;
+  --leading-normal: 1.55;
+
+  --tracking-eyebrow: 0.08em;
+  --tracking-tight: -0.01em;
+
+  /* --- Spacing — 4px base -------------------------------------------------- */
+  --space-0: 0;
+  --space-1: 0.25rem;   /* 4  */
+  --space-2: 0.5rem;    /* 8  */
+  --space-3: 0.75rem;   /* 12 */
+  --space-4: 1rem;      /* 16 */
+  --space-5: 1.25rem;   /* 20 */
+  --space-6: 1.5rem;    /* 24 */
+  --space-8: 2rem;      /* 32 */
+  --space-10: 2.5rem;   /* 40 */
+  --space-12: 3rem;     /* 48 */
+  --space-16: 4rem;     /* 64 */
+
+  /* --- Radius -------------------------------------------------------------- */
+  --radius-control: 4px;  /* buttons, inputs, dense controls */
+  --radius-card: 6px;
+  --radius-pill: var(--fa-radius-pill);
+
+  /* --- Elevation -----------------------------------------------------------
+     Four steps, no more. Shadows are tinted with the brand navy rather than
+     pure black — black shadows on a blue-grey surface read as dirt. */
+  --shadow-xs: 0 1px 2px rgb(0 23 44 / 0.06);
+  --shadow-sm: 0 1px 3px rgb(0 23 44 / 0.08), 0 1px 2px rgb(0 23 44 / 0.04);
+  --shadow-md: 0 4px 12px rgb(0 23 44 / 0.10), 0 1px 3px rgb(0 23 44 / 0.06);
+  --shadow-lg: 0 16px 48px rgb(0 23 44 / 0.18), 0 2px 8px rgb(0 23 44 / 0.08);
+
+  /* --- Density -------------------------------------------------------------
+     One knob for the whole table. Raise it and every row, header and cell
+     grows together. */
+  --row-height: 44px;
+  --control-height: 32px;
+  --control-height-lg: 38px;
+
+  /* --- Layout -------------------------------------------------------------- */
+  --sidebar-width: 232px;
+  --topbar-height: 56px;
+  --drawer-width: 520px;
+  --content-max: 1600px;
+
+  /* --- Motion --------------------------------------------------------------
+     Short and unfussy. This is a tool people use all day; motion here is for
+     orientation, not delight. */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 120ms;
+  --duration-base: 180ms;
+  --duration-slow: 280ms;
+
+  --z-drawer: 100;
+  --z-modal: 200;
+  --z-toast: 300;
+
+  /* ==========================================================================
+     LAYER 3 — SEMANTIC ALIASES
+     Components use only these. Never a --fa-* value directly.
+     ========================================================================== */
+
+  /* --- Surfaces ------------------------------------------------------------ */
+  --surface: var(--fa-white);
+  --surface-sunken: rgb(246, 248, 250);
+  --surface-raised: var(--fa-white);
+  --surface-hover: rgb(244, 247, 250);
+  --surface-selected: var(--fa-blue-tint-900);
+  --surface-brand: var(--fa-blue);
+  --surface-inverse: var(--fa-blue-shade-500);
+
+  /* --- Text ---------------------------------------------------------------- */
+  --text-primary: var(--fa-blue-shade-600);
+  --text-secondary: rgb(84, 100, 116);
+  --text-muted: rgb(122, 136, 150);
+  --text-on-brand: var(--fa-white);
+  --text-link: var(--fa-action);
+
+  /* --- Borders -------------------------------------------------------------
+     Three weights. Hairline for table rows, base for cards, strong for inputs
+     that need to look interactive. */
+  --border-hairline: rgb(232, 236, 240);
+  --border-base: rgb(219, 225, 231);
+  --border-strong: rgb(196, 205, 214);
+  --border-focus: var(--fa-action);
+
+  /* --- Action -------------------------------------------------------------- */
+  --action-bg: var(--fa-action);
+  --action-bg-hover: rgb(0, 100, 168);
+  --action-bg-active: rgb(0, 86, 145);
+  --action-fg: var(--fa-white);
+  --action-subtle-bg: var(--fa-blue-tint-900);
+
+  /* --- Status --------------------------------------------------------------
+     Foreground is darkened from the brand value so text on the tinted
+     background clears WCAG AA. The brand values themselves are display
+     colours, not text colours — --fa-yellow on white is 1.5:1. */
+  --status-success-fg: rgb(0, 106, 52);
+  --status-success-bg: rgb(230, 246, 237);
+  --status-warning-fg: rgb(122, 84, 0);
+  --status-warning-bg: rgb(255, 247, 224);
+  --status-danger-fg: rgb(178, 30, 18);
+  --status-danger-bg: rgb(253, 235, 233);
+  --status-info-fg: rgb(0, 92, 154);
+  --status-info-bg: rgb(230, 242, 250);
+  --status-accent-fg: rgb(15, 106, 148);
+  --status-accent-bg: rgb(231, 245, 251);
+  --status-brand-fg: var(--fa-blue);
+  --status-brand-bg: var(--fa-blue-tint-900);
+  --status-neutral-fg: rgb(84, 100, 116);
+  --status-neutral-bg: rgb(240, 243, 246);
+  --status-purple-fg: rgb(105, 31, 110);
+  --status-purple-bg: rgb(245, 235, 246);
+
+  /* --- Data visualisation --------------------------------------------------
+     Ordered so adjacent series stay distinguishable, and so the sequence reads
+     as a progression — the deal stages are a funnel, and the colour should say
+     so. Deliberately not the semantic set: a chart bar is not a status. */
+  --chart-1: var(--fa-blue-tint-500);
+  --chart-2: rgb(78, 173, 225);
+  --chart-3: var(--fa-action);
+  --chart-4: var(--fa-blue-tint-100);
+  --chart-5: var(--fa-blue);
+  --chart-grid: rgb(235, 239, 243);
+}

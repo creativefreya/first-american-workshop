@@ -1,0 +1,75 @@
+/* Tabs --------------------------------------------------------------------- */
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.tabs__list {
+  display: flex;
+  gap: var(--space-1);
+  padding: 0 var(--space-5);
+  border-bottom: 1px solid var(--border-base);
+  background: var(--surface);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.tabs__list::-webkit-scrollbar { display: none; }
+
+.tabs__tab {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--text-muted);
+  white-space: nowrap;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.tabs__tab:hover { color: var(--text-primary); }
+
+.tabs__tab.is-active { color: var(--fa-blue); font-weight: var(--weight-semibold); }
+
+/* The indicator is on the tab, not a sliding element. A sliding underline
+   needs measurement and breaks when the list scrolls horizontally, which it
+   does on a 520px drawer. */
+.tabs__tab::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 -1px;
+  height: 2px;
+  background: var(--fa-action);
+  transform: scaleX(0);
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.tabs__tab.is-active::after { transform: scaleX(1); }
+
+.tabs__badge {
+  min-width: 18px;
+  padding: 0 5px;
+  border-radius: var(--radius-pill);
+  background: var(--status-neutral-bg);
+  color: var(--text-muted);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  text-align: center;
+}
+
+.tabs__tab.is-active .tabs__badge {
+  background: var(--status-brand-bg);
+  color: var(--fa-blue);
+}
+
+.tabs__panel {
+  flex: 1;
+  min-height: 0;
+  padding: var(--space-5);
+}
+
+.tabs__panel:focus { outline: none; }

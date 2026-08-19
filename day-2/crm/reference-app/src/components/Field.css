@@ -1,0 +1,112 @@
+/* Field ------------------------------------------------------------------- */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.field__label {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--text-muted);
+}
+
+.field__required {
+  margin-left: 2px;
+  color: var(--status-danger-fg);
+}
+
+.field__shell {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.field__prefix {
+  position: absolute;
+  left: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.field__shell--has-prefix .field__control {
+  padding-left: var(--space-6);
+}
+
+.field__control {
+  width: 100%;
+  height: var(--control-height-lg);
+  padding: 0 var(--space-3);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-control);
+  background: var(--surface);
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+  transition:
+    border-color var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.field__control::placeholder {
+  color: var(--text-muted);
+}
+
+.field__control:hover:not(:focus) {
+  border-color: var(--text-muted);
+}
+
+/* The focus ring is drawn with box-shadow rather than outline so it hugs the
+   4px radius. Outline in Safari squares off the corners. */
+.field__control:focus {
+  outline: none;
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgb(0 117 195 / 0.14);
+}
+
+.field__control--textarea {
+  height: auto;
+  min-height: 76px;
+  padding: var(--space-2) var(--space-3);
+  line-height: var(--leading-snug);
+  resize: vertical;
+}
+
+/* Native select arrow removed and redrawn, because the platform default is
+   wildly different across Windows, macOS and Linux and this is a table of
+   filters where they sit side by side. */
+.field__control--select {
+  appearance: none;
+  padding-right: var(--space-8);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%237a8896' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--space-2) center;
+  cursor: pointer;
+}
+
+.field__hint {
+  font-size: var(--text-xs);
+  line-height: var(--leading-snug);
+  color: var(--text-muted);
+}
+
+/* Layout helper for forms — two columns above 640px, one below. */
+.field-grid {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.field-grid > .field--full {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 640px) {
+  .field-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

@@ -1,0 +1,87 @@
+/* StatCard ----------------------------------------------------------------- */
+
+.stat-row {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.stat {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-4);
+  border: 1px solid var(--border-base);
+  border-radius: var(--radius-card);
+  background: var(--surface);
+  overflow: hidden;
+}
+
+/* A hairline of brand colour along the top edge. One decorative flourish in
+   the whole app — it ties the tiles to the navy chrome without adding another
+   filled surface to a screen that already has plenty. */
+.stat::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 2px;
+  background: linear-gradient(90deg, var(--fa-blue) 0%, var(--fa-cyan) 100%);
+  opacity: 0.85;
+}
+
+.stat__label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--text-muted);
+}
+
+.stat__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--dot-color);
+}
+
+.stat__dot--brand   { --dot-color: var(--fa-blue); }
+.stat__dot--info    { --dot-color: var(--fa-action); }
+.stat__dot--accent  { --dot-color: var(--fa-cyan); }
+.stat__dot--success { --dot-color: var(--fa-green); }
+.stat__dot--warning { --dot-color: var(--fa-yellow); }
+.stat__dot--danger  { --dot-color: var(--fa-red); }
+.stat__dot--neutral { --dot-color: var(--fa-grey); }
+
+.stat__value {
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--text-primary);
+}
+
+.stat__meta {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.stat__trend {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  margin-top: var(--space-1);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+}
+
+.stat__trend--up { color: var(--status-success-fg); }
+
+.stat__trend--down { color: var(--status-danger-fg); }
+
+.stat__trend--down .icon {
+  transform: scaleY(-1);
+}

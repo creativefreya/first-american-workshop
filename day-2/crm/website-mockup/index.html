@@ -1,0 +1,1554 @@
+<!doctype html>
+<!--
+  ============================================================================
+  TRAINING MOCKUP — not a real First American property.
+
+  A recreation of firstam.com's homepage for the First American workshop,
+  used as the "marketing site" half of the Session 2 story. It shares no code,
+  no data and no styles with the CRM in ../reference-app — deliberately. This
+  is a single self-contained file: no build, no fetch, no server. Double-click
+  it and it works.
+
+  Structure and copy follow the live site so the layout is recognisable. The
+  imagery is CSS and inline SVG rather than First American's photography, and
+  the logo is an abstract mark rather than their trademark.
+
+  Nothing on this page transmits data. The newsletter form validates and shows
+  a confirmation, and that is the whole of it — no back end, no storage, and no
+  connection to the CRM.
+
+  To remove the mockup notice bar, delete the <div class="notice"> element.
+  ============================================================================
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>First American — homepage mockup (training)</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap"
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23013a6f'/%3E%3Crect y='24' width='32' height='8' fill='%234eade1'/%3E%3C/svg%3E"
+    />
+
+    <style>
+      /* ======================================================================
+         TOKENS — the same First American brand values the CRM uses, so the two
+         artefacts sit side by side without clashing. Copied rather than
+         imported: this file is standalone on purpose.
+         ====================================================================== */
+      :root {
+        --blue: rgb(1, 58, 111);
+        --blue-deep: rgb(0, 29, 55);
+        --blue-tint-100: rgb(27, 78, 126);
+        --blue-tint-900: rgb(230, 236, 241);
+        --cyan: #4eade1;
+        --action: rgb(0, 117, 195);
+        --action-hover: rgb(0, 100, 168);
+        --green: rgb(0, 166, 81);
+        --white: #fff;
+
+        --ink: rgb(0, 23, 44);
+        --body: rgb(72, 88, 104);
+        --muted: rgb(122, 136, 150);
+        --line: rgb(224, 229, 234);
+        --sunken: rgb(246, 248, 250);
+
+        --font: 'Figtree', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        --radius-pill: 25px;
+        --radius-card: 8px;
+        --shell: 1240px;
+        --ease: cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      *,
+      *::before,
+      *::after { box-sizing: border-box; }
+
+      body,
+      h1, h2, h3, h4, p, figure, ul, ol { margin: 0; }
+
+      ul { padding: 0; list-style: none; }
+
+      html { scroll-behavior: smooth; }
+
+      body {
+        font-family: var(--font);
+        font-size: 17px;
+        line-height: 1.6;
+        color: var(--body);
+        background: var(--white);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      a { color: var(--action); text-decoration: none; }
+      a:hover { text-decoration: underline; }
+
+      button { font: inherit; cursor: pointer; border: none; background: none; }
+
+      img, svg { display: block; max-width: 100%; }
+
+      :focus-visible {
+        outline: 3px solid var(--action);
+        outline-offset: 2px;
+        border-radius: 2px;
+      }
+
+      .shell {
+        width: 100%;
+        max-width: var(--shell);
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      .sr-only {
+        position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+        overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+      }
+
+      /* --- Buttons ------------------------------------------------------- */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        min-height: 48px;
+        padding: 0 30px;
+        border-radius: var(--radius-pill);
+        font-size: 16px;
+        font-weight: 600;
+        text-align: center;
+        transition: background-color 160ms var(--ease), color 160ms var(--ease),
+          border-color 160ms var(--ease), transform 160ms var(--ease);
+      }
+      .btn:hover { text-decoration: none; transform: translateY(-1px); }
+
+      .btn--primary { background: var(--action); color: var(--white); }
+      .btn--primary:hover { background: var(--action-hover); }
+
+      .btn--outline-blue {
+        border: 2px solid var(--action);
+        color: var(--action);
+        background: transparent;
+      }
+      .btn--outline-blue:hover { background: var(--action); color: var(--white); }
+
+      /* The live site pairs a navy button with the blue one in the hero. */
+      .btn--navy { background: var(--blue-deep); color: var(--white); }
+      .btn--navy:hover { background: var(--blue); }
+
+      .btn--sm { min-height: 40px; padding: 0 22px; font-size: 15px; }
+
+      /* ======================================================================
+         MOCKUP NOTICE — delete this block and the .notice element to remove.
+         ====================================================================== */
+      .notice {
+        position: relative;
+        z-index: 60;
+        background: repeating-linear-gradient(
+          135deg, #2b2b33, #2b2b33 12px, #33333c 12px, #33333c 24px
+        );
+        color: #fff;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-align: center;
+        padding: 7px 16px;
+      }
+      .notice span { opacity: 0.85; font-weight: 400; letter-spacing: 0; }
+
+      /* ======================================================================
+         UTILITY BAR
+         ====================================================================== */
+      .utility {
+        background: var(--blue-deep);
+        color: rgb(200, 214, 226);
+        font-size: 14px;
+      }
+      .utility .shell {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 28px;
+        min-height: 40px;
+      }
+      .utility a, .utility button {
+        color: inherit;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .utility a:hover, .utility button:hover { color: var(--white); text-decoration: none; }
+
+      /* Sign-in dropdown ---------------------------------------------------- */
+      .signin { position: relative; }
+      .signin__panel {
+        position: absolute;
+        top: calc(100% + 6px);
+        right: 0;
+        z-index: 70;
+        min-width: 250px;
+        padding: 8px;
+        border-radius: var(--radius-card);
+        background: var(--white);
+        box-shadow: 0 18px 44px rgb(0 23 44 / 0.22);
+        display: none;
+      }
+      .signin.is-open .signin__panel { display: block; }
+      .signin__panel a {
+        display: block;
+        padding: 9px 14px;
+        border-radius: 4px;
+        color: var(--ink);
+        font-size: 15px;
+      }
+      .signin__panel a:hover { background: var(--blue-tint-900); color: var(--blue); }
+
+      /* ======================================================================
+         MASTHEAD
+         ====================================================================== */
+      .masthead {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: var(--white);
+        border-bottom: 1px solid var(--line);
+      }
+      .masthead .shell {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        min-height: 76px;
+      }
+
+      .logo { display: flex; align-items: center; gap: 12px; }
+      .logo:hover { text-decoration: none; }
+      .logo__mark {
+        width: 40px; height: 40px; flex: none;
+        border-radius: 5px;
+        background: linear-gradient(140deg, var(--blue) 0%, var(--blue-tint-100) 100%);
+        position: relative; overflow: hidden;
+      }
+      .logo__mark::after {
+        content: ''; position: absolute; inset: auto 0 0 0; height: 12px; background: var(--cyan);
+      }
+      .logo__text { display: flex; flex-direction: column; line-height: 1.1; }
+      .logo__name {
+        font-size: 20px; font-weight: 800; color: var(--blue); letter-spacing: -0.02em;
+      }
+      .logo__tag {
+        font-size: 10px; font-weight: 600; letter-spacing: 0.14em;
+        text-transform: uppercase; color: var(--muted);
+      }
+
+      /* America 250 lockup — the live site pairs the brand mark with this
+         anniversary logo, separated by a hairline rule. */
+      .lockup {
+        display: flex; align-items: center; gap: 22px; margin-left: 0;
+      }
+      .lockup__rule { width: 1px; height: 46px; background: var(--line); }
+      .a250 { display: flex; flex-direction: column; align-items: center; line-height: 1; }
+      .a250__word {
+        font-size: 12px; font-weight: 600; letter-spacing: 0.17em;
+        text-transform: uppercase; color: var(--blue); margin-bottom: 3px;
+      }
+      .a250__num {
+        font-family: 'Figtree', Georgia, serif;
+        font-size: 30px; font-weight: 700; font-style: italic;
+        letter-spacing: -0.01em; color: #b3121f;
+      }
+
+      /* Hamburger — the live site uses one at every width, not just mobile. */
+      .navtoggle {
+        display: grid; place-items: center; margin-left: auto;
+        width: 46px; height: 46px; border-radius: 6px; color: var(--ink);
+      }
+      .navtoggle:hover { background: var(--sunken); color: var(--blue); }
+
+      /* Slide-out navigation ------------------------------------------------ */
+      .navdrawer { position: fixed; inset: 0; z-index: 90; display: none; }
+      .navdrawer.is-open { display: block; }
+      .navdrawer__backdrop {
+        position: absolute; inset: 0; background: rgb(0 23 44 / 0.45);
+        opacity: 0; transition: opacity 200ms var(--ease);
+      }
+      .navdrawer.is-visible .navdrawer__backdrop { opacity: 1; }
+      .navdrawer__panel {
+        position: absolute; inset: 0 0 0 auto;
+        width: min(420px, 100%);
+        display: flex; flex-direction: column;
+        background: var(--white);
+        box-shadow: -18px 0 60px rgb(0 23 44 / 0.28);
+        transform: translateX(100%);
+        transition: transform 260ms var(--ease);
+      }
+      .navdrawer.is-visible .navdrawer__panel { transform: translateX(0); }
+      .navdrawer__head {
+        display: flex; align-items: center; justify-content: space-between;
+        padding: 20px 24px; border-bottom: 1px solid var(--line);
+      }
+      .navdrawer__close {
+        display: grid; place-items: center;
+        width: 40px; height: 40px; border-radius: 50%;
+        color: var(--blue); background: var(--sunken);
+      }
+      .navdrawer__close:hover { background: var(--blue-tint-900); }
+      .navdrawer__body { flex: 1; overflow-y: auto; padding: 8px 16px 28px; }
+      .navdrawer h3 {
+        font-size: 12px; font-weight: 700; letter-spacing: 0.12em;
+        text-transform: uppercase; color: var(--muted);
+        padding: 20px 12px 8px;
+      }
+      .navdrawer a {
+        display: block; padding: 10px 12px; border-radius: 6px;
+        color: var(--ink); font-size: 16px; font-weight: 500;
+      }
+      .navdrawer a:hover { background: var(--blue-tint-900); color: var(--blue); text-decoration: none; }
+      .navdrawer__foot {
+        padding: 18px 24px; border-top: 1px solid var(--line); background: var(--sunken);
+      }
+
+      /* ======================================================================
+         HERO
+         ====================================================================== */
+      /* Two columns, white background, photo bleeding off the right edge —
+         the shape the live site uses. The text column is padded so it lines up
+         with the shell while the media column runs to the viewport edge. */
+      .hero { background: var(--white); }
+      .hero__grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: center;
+      }
+      .hero__text {
+        padding: 84px 56px 84px max(24px, calc((100vw - var(--shell)) / 2 + 24px));
+      }
+      .hero h1 {
+        font-size: clamp(38px, 4.4vw, 56px);
+        font-weight: 800;
+        line-height: 1.08;
+        letter-spacing: -0.03em;
+        color: var(--ink);
+        margin-bottom: 22px;
+        max-width: 12ch;
+      }
+      .hero p {
+        font-size: 19px;
+        line-height: 1.62;
+        color: var(--body);
+        max-width: 30ch;
+        margin-bottom: 32px;
+      }
+      .hero__ctas { display: flex; flex-wrap: wrap; gap: 14px; }
+
+      /* Stand-in for the site's photograph. A soft, out-of-focus warm scene
+         built from layered gradients — it reads as photography without being a
+         picture of a real person, and it keeps this file self-contained. */
+      .hero__media {
+        position: relative;
+        align-self: stretch;
+        min-height: 460px;
+        overflow: hidden;
+        background:
+          radial-gradient(60% 70% at 72% 42%, rgb(214, 149, 46, 0.95), transparent 62%),
+          radial-gradient(46% 56% at 30% 24%, rgb(233, 226, 205, 0.95), transparent 60%),
+          radial-gradient(70% 80% at 20% 90%, rgb(96, 74, 48, 0.85), transparent 65%),
+          linear-gradient(120deg, #b8c6ae 0%, #8a7a5c 42%, #6d5334 100%);
+      }
+      .hero__media::before {
+        content: '';
+        position: absolute; inset: 0;
+        backdrop-filter: blur(0.5px);
+        background:
+          repeating-linear-gradient(102deg, rgb(0 0 0 / 0.05) 0 3px, transparent 3px 9px),
+          radial-gradient(120% 100% at 0% 50%, rgb(255 255 255 / 0.28), transparent 45%);
+      }
+      /* The dashed arc the live site draws over its hero photo. */
+      .hero__arc {
+        position: absolute;
+        top: 50%; left: 8%;
+        width: 74%; aspect-ratio: 1;
+        transform: translateY(-50%);
+        border: 2px dashed var(--blue-deep);
+        border-radius: 50%;
+        opacity: 0.85;
+      }
+
+      /* Office strip — dark navy, centred. ---------------------------------- */
+      .officestrip { background: var(--blue-deep); color: var(--white); text-align: center; }
+      .officestrip .shell { padding-top: 52px; padding-bottom: 52px; }
+      .officestrip p {
+        font-size: clamp(20px, 2.2vw, 26px); font-weight: 500;
+        line-height: 1.4; letter-spacing: -0.01em;
+        max-width: 30ch; margin: 0 auto 26px;
+      }
+
+      /* ======================================================================
+         WHITE PAPER BANNER — the "Join Email List" entry point
+         ====================================================================== */
+      .whitepaper { background: rgb(20, 34, 66); color: var(--white); }
+      .whitepaper .shell {
+        display: grid;
+        grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
+        align-items: center;
+        gap: 56px;
+        padding-top: 46px; padding-bottom: 46px;
+      }
+      .whitepaper__label {
+        font-size: 15px; font-weight: 700; letter-spacing: 0.1em;
+        text-transform: uppercase; color: var(--cyan); margin-bottom: 14px;
+      }
+      .whitepaper h2 {
+        font-size: clamp(26px, 3vw, 38px); font-weight: 800;
+        line-height: 1.18; letter-spacing: -0.02em; margin-bottom: 26px;
+        max-width: 720px;
+      }
+
+      /* ======================================================================
+         SECTIONS
+         ====================================================================== */
+      .section { padding: 84px 0; }
+      .section--sunken { background: var(--sunken); }
+      .section--tint { background: var(--blue-tint-900); }
+
+      .section__head { max-width: 760px; margin-bottom: 44px; }
+      .section__head--center { max-width: 900px; margin-inline: auto; text-align: center; }
+      .section__eyebrow {
+        font-size: 13px; font-weight: 700; letter-spacing: 0.13em;
+        text-transform: uppercase; color: var(--action); margin-bottom: 12px;
+      }
+      .section h2 {
+        font-size: clamp(28px, 3.4vw, 42px);
+        font-weight: 800; line-height: 1.14; letter-spacing: -0.025em;
+        color: var(--blue); margin-bottom: 16px;
+      }
+      .section__lede { font-size: 18px; line-height: 1.65; }
+
+      /* Service cards ------------------------------------------------------- */
+      .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+      .card {
+        display: flex; flex-direction: column;
+        padding: 30px;
+        border: 1px solid var(--line);
+        border-top: 4px solid var(--action);
+        border-radius: var(--radius-card);
+        background: var(--white);
+        transition: box-shadow 180ms var(--ease), transform 180ms var(--ease);
+      }
+      .card:hover { box-shadow: 0 16px 40px rgb(0 23 44 / 0.10); transform: translateY(-3px); }
+      .card__icon {
+        display: grid; place-items: center;
+        width: 50px; height: 50px; margin-bottom: 18px;
+        border-radius: 8px;
+        background: var(--blue-tint-900);
+        color: var(--blue);
+      }
+      .card h3 {
+        font-size: 21px; font-weight: 700; color: var(--blue);
+        line-height: 1.25; letter-spacing: -0.015em; margin-bottom: 10px;
+      }
+      .card p { font-size: 16px; line-height: 1.6; margin-bottom: 18px; }
+      .card__links { display: flex; flex-wrap: wrap; gap: 6px 8px; margin-bottom: 20px; }
+      .card__links li {
+        font-size: 13px; font-weight: 600; color: var(--body);
+        padding: 4px 11px; border: 1px solid var(--line);
+        border-radius: var(--radius-pill); background: var(--sunken);
+      }
+      .card__foot { margin-top: auto; }
+      .card__cta {
+        display: inline-flex; align-items: center; gap: 8px;
+        font-weight: 700; font-size: 16px;
+      }
+      .card__cta svg { transition: transform 160ms var(--ease); }
+      .card:hover .card__cta svg { transform: translateX(4px); }
+
+      .card ul.bullets { margin-bottom: 20px; }
+      .card ul.bullets li {
+        position: relative; padding-left: 26px; margin-bottom: 8px;
+        font-size: 16px; line-height: 1.5;
+      }
+      .card ul.bullets li::before {
+        content: ''; position: absolute; left: 0; top: 7px;
+        width: 15px; height: 15px; border-radius: 50%;
+        background: var(--green);
+        -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m20 6-11 11-5-5'/%3E%3C/svg%3E") center / 12px no-repeat,
+                linear-gradient(#000, #000);
+        -webkit-mask-composite: xor;
+        mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m20 6-11 11-5-5'/%3E%3C/svg%3E") center / 12px no-repeat;
+      }
+
+      /* Split feature ------------------------------------------------------- */
+      .split {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: center;
+        gap: 64px;
+      }
+      .split--flip .split__text { order: 2; }
+      .split h2 { margin-bottom: 14px; }
+      .split p { font-size: 18px; line-height: 1.65; margin-bottom: 26px; }
+      .split__ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+
+      .visual {
+        aspect-ratio: 4 / 3;
+        border-radius: 12px;
+        background: linear-gradient(140deg, var(--blue) 0%, var(--blue-tint-100) 60%, var(--cyan) 160%);
+        position: relative;
+        overflow: hidden;
+        display: grid;
+        place-items: center;
+        color: rgb(255 255 255 / 0.9);
+      }
+      .visual::after {
+        content: '';
+        position: absolute; inset: 0;
+        background-image:
+          linear-gradient(rgb(255 255 255 / 0.07) 1px, transparent 1px),
+          linear-gradient(90deg, rgb(255 255 255 / 0.07) 1px, transparent 1px);
+        background-size: 40px 40px;
+      }
+      .visual svg { position: relative; z-index: 1; width: 44%; height: auto; opacity: 0.92; }
+      .visual--light { background: linear-gradient(140deg, #eef3f8 0%, #dfe9f2 100%); color: var(--blue); }
+
+      /* Stats --------------------------------------------------------------- */
+      .stats {
+        display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px;
+        margin-top: 46px;
+      }
+      .stat { padding: 30px; border-radius: var(--radius-card); background: rgb(255 255 255 / 0.08); }
+      .stat__value {
+        font-size: clamp(36px, 4vw, 52px); font-weight: 800;
+        line-height: 1; letter-spacing: -0.03em; color: var(--cyan); margin-bottom: 10px;
+      }
+      .stat__label {
+        font-size: 14px; font-weight: 700; letter-spacing: 0.09em;
+        text-transform: uppercase; color: rgb(214, 227, 238);
+      }
+
+      .section--dark {
+        background: linear-gradient(120deg, var(--blue-deep) 0%, var(--blue) 100%);
+        color: rgb(214, 227, 238);
+      }
+      .section--dark h2 { color: var(--white); }
+
+      /* Awards -------------------------------------------------------------- */
+      .awards {
+        display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; margin-top: 36px;
+      }
+      .award {
+        display: grid; place-items: center; text-align: center;
+        min-height: 118px; padding: 18px 14px;
+        border: 1px solid var(--line); border-radius: var(--radius-card);
+        background: var(--white);
+        font-size: 13px; font-weight: 700; line-height: 1.35; color: var(--blue);
+      }
+
+      /* Newsletter ---------------------------------------------------------- */
+      .newsletter { background: var(--blue-tint-900); }
+      .newsletter .shell { padding-top: 76px; padding-bottom: 76px; }
+      .newsletter__grid {
+        display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 60px;
+        align-items: start;
+      }
+      .newsletter h2 { font-size: clamp(26px, 3vw, 36px); }
+
+      .formcard {
+        padding: 32px; border-radius: var(--radius-card);
+        background: var(--white); box-shadow: 0 12px 34px rgb(0 23 44 / 0.08);
+      }
+      .fieldrow { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+      .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+      .field--full { grid-column: 1 / -1; }
+      .field label { font-size: 14px; font-weight: 700; color: var(--ink); }
+      .field .req { color: #c62828; }
+      .field input, .field select {
+        width: 100%; height: 46px; padding: 0 14px;
+        border: 1px solid rgb(196, 205, 214); border-radius: 5px;
+        font: inherit; font-size: 16px; color: var(--ink); background: var(--white);
+      }
+      .field select {
+        appearance: none; padding-right: 40px; cursor: pointer;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%237a8896' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+        background-repeat: no-repeat; background-position: right 12px center;
+      }
+      .field input:focus, .field select:focus {
+        outline: none; border-color: var(--action);
+        box-shadow: 0 0 0 3px rgb(0 117 195 / 0.16);
+      }
+      .field input:invalid:not(:placeholder-shown) { border-color: #c62828; }
+
+      .checkgroup { margin-bottom: 20px; }
+      .checkgroup__legend {
+        font-size: 14px; font-weight: 700; color: var(--ink);
+        margin-bottom: 10px; padding: 0;
+      }
+      .check {
+        display: flex; align-items: flex-start; gap: 10px;
+        padding: 9px 12px; margin-bottom: 8px;
+        border: 1px solid var(--line); border-radius: 6px;
+        font-size: 15px; cursor: pointer;
+        transition: border-color 140ms var(--ease), background-color 140ms var(--ease);
+      }
+      .check:hover { border-color: var(--action); background: var(--sunken); }
+      .check input { width: 18px; height: 18px; margin: 2px 0 0; accent-color: var(--action); flex: none; }
+      .check span { color: var(--ink); }
+      .check small { display: block; color: var(--muted); font-size: 13px; }
+
+      .formnote { font-size: 13px; line-height: 1.55; color: var(--muted); margin-top: 14px; }
+
+      body.is-locked { overflow: hidden; }
+
+      /* Success state ------------------------------------------------------- */
+      .success { text-align: center; padding: 26px 10px 14px; }
+      .success__icon {
+        display: grid; place-items: center;
+        width: 66px; height: 66px; margin: 0 auto 20px;
+        border-radius: 50%; background: rgb(230, 246, 237); color: rgb(0, 122, 60);
+      }
+      .success h3 {
+        font-size: 24px; font-weight: 800; color: var(--blue);
+        letter-spacing: -0.02em; margin-bottom: 10px;
+      }
+      .success p { font-size: 16px; line-height: 1.6; max-width: 42ch; margin: 0 auto 8px; }
+      .success strong { color: var(--ink); }
+      .success .tag {
+        display: inline-block; margin-top: 14px; padding: 6px 14px;
+        border-radius: var(--radius-pill); background: var(--sunken);
+        border: 1px solid var(--line);
+        font-size: 13px; color: var(--muted);
+      }
+
+      /* ======================================================================
+         FOOTER
+         ====================================================================== */
+      .footer { background: var(--blue-deep); color: rgb(184, 200, 214); font-size: 15px; }
+      .footer .shell { padding-top: 60px; padding-bottom: 34px; }
+      .footer__grid {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 36px 28px;
+      }
+      .footer h3 {
+        font-size: 13px; font-weight: 700; letter-spacing: 0.11em;
+        text-transform: uppercase; color: var(--white); margin-bottom: 14px;
+      }
+      .footer li { margin-bottom: 9px; line-height: 1.45; }
+      .footer a { color: inherit; }
+      .footer a:hover { color: var(--white); }
+
+      .socials { display: flex; gap: 10px; margin-top: 16px; }
+      .socials a {
+        display: grid; place-items: center;
+        width: 38px; height: 38px; border-radius: 50%;
+        background: rgb(255 255 255 / 0.09); color: var(--white);
+      }
+      .socials a:hover { background: var(--action); }
+
+      .footer__legal {
+        margin-top: 44px; padding-top: 24px;
+        border-top: 1px solid rgb(255 255 255 / 0.12);
+        display: flex; flex-wrap: wrap; align-items: center; gap: 10px 22px;
+        font-size: 13.5px;
+      }
+      .footer__legal .spacer { margin-left: auto; }
+      .footer__fineprint {
+        margin-top: 16px; font-size: 12.5px; line-height: 1.6;
+        color: rgb(140, 158, 175); max-width: 92ch;
+      }
+
+      /* ======================================================================
+         RESPONSIVE
+         ====================================================================== */
+      @media (max-width: 1080px) {
+        .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .awards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        .footer__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      }
+
+      @media (max-width: 940px) {
+        .utility .shell > a, .signin { display: none; }
+        .utility .shell { justify-content: flex-end; min-height: 34px; }
+        .lockup { gap: 14px; }
+        .lockup__rule { height: 36px; }
+        .a250__num { font-size: 24px; }
+
+        .split, .newsletter__grid, .whitepaper .shell {
+          grid-template-columns: minmax(0, 1fr); gap: 34px;
+        }
+        .split--flip .split__text { order: 0; }
+        .whitepaper__figure { max-width: 320px; }
+
+        /* Stack the hero: text first, then the image as a banner strip. */
+        .hero__grid { grid-template-columns: minmax(0, 1fr); }
+        .hero__text { padding: 56px 24px; }
+        .hero h1, .hero p { max-width: none; }
+        .hero__media { min-height: 260px; order: -1; }
+
+        .section { padding: 60px 0; }
+        .stats { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+      }
+
+      @media (max-width: 680px) {
+        body { font-size: 16px; }
+        .cards, .awards, .footer__grid, .fieldrow { grid-template-columns: minmax(0, 1fr); }
+        .hero__ctas .btn, .split__ctas .btn { width: 100%; }
+        .footer__legal .spacer { margin-left: 0; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+          animation-duration: 0.01ms !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Delete this element to remove the mockup marker. -->
+    <div class="notice">
+      TRAINING MOCKUP — <span>a recreation of firstam.com for the First American workshop. Not a real First American site. No form submits anywhere.</span>
+    </div>
+
+    <a class="sr-only" href="#main">Skip to main content</a>
+
+    <!-- ================================================================== -->
+    <!-- UTILITY BAR                                                        -->
+    <!-- ================================================================== -->
+    <div class="utility">
+      <div class="shell">
+        <div class="signin" id="signin">
+          <button type="button" id="signinToggle" aria-expanded="false" aria-controls="signinPanel">
+            Sign In
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="signin__panel" id="signinPanel">
+            <a href="#">Transactions Portal</a>
+            <a href="#">FirstAm IgniteRE™</a>
+            <a href="#">ClarityFirst®</a>
+            <a href="#">AgentNet®</a>
+            <a href="#">Home Warranty</a>
+            <a href="#">DataTree.com</a>
+            <a href="#">myFirstAm®</a>
+          </div>
+        </div>
+        <a href="#">Contact Us</a>
+        <a href="#">FAF (Investors)</a>
+      </div>
+    </div>
+
+    <!-- ================================================================== -->
+    <!-- MASTHEAD                                                           -->
+    <!-- ================================================================== -->
+    <header class="masthead">
+      <div class="shell">
+        <div class="lockup">
+          <a class="logo" href="#" aria-label="First American — home">
+            <span class="logo__mark" aria-hidden="true"></span>
+            <span class="logo__text">
+              <span class="logo__name">First American</span>
+              <span class="logo__tag">Financial Corporation</span>
+            </span>
+          </a>
+          <span class="lockup__rule" aria-hidden="true"></span>
+          <span class="a250" aria-label="America 250">
+            <span class="a250__word">America</span>
+            <span class="a250__num">250</span>
+          </span>
+        </div>
+
+        <button class="navtoggle" type="button" id="navToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="navDrawer">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Slide-out navigation ------------------------------------------------ -->
+    <div class="navdrawer" id="navDrawer" role="dialog" aria-modal="true" aria-label="Main navigation" hidden>
+      <div class="navdrawer__backdrop" data-close-nav></div>
+      <nav class="navdrawer__panel">
+        <div class="navdrawer__head">
+          <span class="logo__name">First American</span>
+          <button class="navdrawer__close" type="button" data-close-nav aria-label="Close navigation">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+          </button>
+        </div>
+
+        <div class="navdrawer__body">
+          <h3>Our Services</h3>
+          <a href="#">Title Insurance and Settlement Services</a>
+          <a href="#">Mortgage Lender and Servicer Solutions</a>
+          <a href="#">Real Estate Data Solutions</a>
+          <a href="#">Home Warranty and Insurance</a>
+          <a href="#">Wealth Management &amp; Banking Services</a>
+          <a href="#">International Services</a>
+          <a href="#">Find an Office</a>
+          <a href="#">Title Fee Calculator</a>
+          <a href="#">Why is Title Insurance Important?</a>
+
+          <h3>About Us</h3>
+          <a href="#">Who We Are</a>
+          <a href="#">News</a>
+          <a href="#">FirstAmCares</a>
+          <a href="#">Company History</a>
+          <a href="#">Supplier Information</a>
+          <a href="#">Sustainability</a>
+          <a href="#">eClosing Center</a>
+          <a href="#">Economic Center</a>
+          <a href="#">Home Buying Guide</a>
+          <a href="#">Fraud Protection Center</a>
+
+          <h3>Careers</h3>
+          <a href="#">Careers Home</a>
+
+          <h3>For Investors</h3>
+          <a href="#">Financial Information</a>
+          <a href="#">Governance</a>
+          <a href="#">News and Events</a>
+          <a href="#">Stock Information</a>
+          <a href="#">Statutory Reporting</a>
+          <a href="#">Title Order Counts</a>
+        </div>
+      </nav>
+    </div>
+
+    <main id="main">
+      <!-- ================================================================ -->
+      <!-- FEATURE WHITE PAPER BANNER                                       -->
+      <!-- Sits directly under the masthead, above the hero, as on the      -->
+      <!-- live site.                                                       -->
+      <!-- ================================================================ -->
+      <section class="whitepaper">
+        <div class="shell">
+          <div class="whitepaper__figure">
+            <!-- Stand-in for the site's photograph of the printed paper. -->
+            <svg viewBox="0 0 340 250" fill="none" aria-hidden="true">
+              <g transform="rotate(-9 170 130)">
+                <rect x="24" y="52" width="132" height="168" rx="4" fill="#0e1b3d"/>
+                <rect x="24" y="52" width="132" height="62" rx="4" fill="#2f6f9e"/>
+                <path d="M24 96c22-14 44-6 66-16s44-14 66-4v38H24V96Z" fill="#4eade1" opacity=".65"/>
+                <rect x="38" y="132" width="96" height="7" rx="3.5" fill="#ffffff" opacity=".92"/>
+                <rect x="38" y="146" width="104" height="7" rx="3.5" fill="#ffffff" opacity=".92"/>
+                <rect x="38" y="160" width="72" height="7" rx="3.5" fill="#ffffff" opacity=".92"/>
+                <rect x="38" y="196" width="44" height="5" rx="2.5" fill="#4eade1"/>
+              </g>
+              <g transform="rotate(4 200 120)">
+                <rect x="150" y="30" width="176" height="182" rx="4" fill="#ffffff"/>
+                <rect x="150" y="30" width="88" height="182" fill="#f4f7fa"/>
+                <rect x="164" y="46" width="60" height="5" rx="2.5" fill="#013a6f"/>
+                <g fill="#c3ced9">
+                  <rect x="164" y="64" width="60" height="3.4" rx="1.7"/>
+                  <rect x="164" y="74" width="60" height="3.4" rx="1.7"/>
+                  <rect x="164" y="84" width="48" height="3.4" rx="1.7"/>
+                  <rect x="164" y="98" width="60" height="3.4" rx="1.7"/>
+                  <rect x="164" y="108" width="56" height="3.4" rx="1.7"/>
+                  <rect x="164" y="118" width="60" height="3.4" rx="1.7"/>
+                  <rect x="164" y="128" width="40" height="3.4" rx="1.7"/>
+                  <rect x="252" y="64" width="60" height="3.4" rx="1.7"/>
+                  <rect x="252" y="74" width="60" height="3.4" rx="1.7"/>
+                  <rect x="252" y="84" width="52" height="3.4" rx="1.7"/>
+                </g>
+                <rect x="252" y="102" width="60" height="42" rx="3" fill="#0e1b3d"/>
+                <g fill="#4eade1" opacity=".8">
+                  <rect x="260" y="112" width="44" height="3" rx="1.5"/>
+                  <rect x="260" y="120" width="38" height="3" rx="1.5"/>
+                  <rect x="260" y="128" width="42" height="3" rx="1.5"/>
+                </g>
+                <g fill="#c3ced9">
+                  <rect x="252" y="156" width="60" height="3.4" rx="1.7"/>
+                  <rect x="252" y="166" width="60" height="3.4" rx="1.7"/>
+                  <rect x="252" y="176" width="46" height="3.4" rx="1.7"/>
+                  <rect x="164" y="156" width="60" height="3.4" rx="1.7"/>
+                  <rect x="164" y="166" width="54" height="3.4" rx="1.7"/>
+                </g>
+              </g>
+            </svg>
+          </div>
+
+          <div>
+            <p class="whitepaper__label">Feature White Paper</p>
+            <h2>How Title Insurance Protects Property Rights and the U.S. Real Estate Economy</h2>
+            <a class="btn btn--primary" href="#">Learn More</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================ -->
+      <!-- HERO                                                             -->
+      <!-- ================================================================ -->
+      <section class="hero">
+        <div class="hero__grid">
+          <div class="hero__text">
+            <h1>Stay Ahead of Real Estate Fraud</h1>
+            <p>
+              Wire fraud, phishing and identity theft can disrupt a real estate closing.
+              Get prevention tips, security guidance and reporting tools from First American.
+            </p>
+            <div class="hero__ctas">
+              <a class="btn btn--navy" href="#services">Our Services</a>
+              <a class="btn btn--primary" href="#fraud">Visit the Fraud Protection Center</a>
+            </div>
+          </div>
+
+          <div class="hero__media" aria-hidden="true">
+            <span class="hero__arc"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Office strip ---------------------------------------------------- -->
+      <section class="officestrip">
+        <div class="shell">
+          <p>Get nationwide service with local expertise.<br />Connect with a First American office near you.</p>
+          <a class="btn btn--primary" href="#">Find Your Office</a>
+        </div>
+      </section>
+
+      <!-- ================================================================ -->
+      <!-- SERVICES                                                         -->
+      <!-- ================================================================ -->
+      <section class="section" id="services">
+        <div class="shell">
+          <div class="section__head section__head--center">
+            <h2>Learn more about our products and services.</h2>
+          </div>
+
+          <div class="cards">
+            <article class="card">
+              <span class="card__icon" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg>
+              </span>
+              <h3>Title Insurance &amp; Settlement Services</h3>
+              <p>Get comprehensive title insurance protection and professional settlement services to facilitate and streamline real estate transactions.</p>
+              <ul class="card__links">
+                <li>Residential</li><li>Commercial</li><li>Agency</li>
+                <li>Homebuilders</li><li>Vacation Ownership</li><li>Tax-Deferred Exchanges</li>
+              </ul>
+              <div class="card__foot">
+                <a class="card__cta" href="#">
+                  What is title insurance and why do I need it?
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+              </div>
+            </article>
+
+            <article class="card">
+              <span class="card__icon" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 10h20"/><path d="M6 15h5"/></svg>
+              </span>
+              <h3>Lender &amp; Servicer Solutions</h3>
+              <p>Drive your digital evolution forward with First American's powerful technology and the richest datasets in the industry.</p>
+              <ul class="card__links">
+                <li>First American Mortgage Solutions</li><li>ServiceMac</li>
+                <li>Data &amp; Analytics</li><li>Docutech</li>
+              </ul>
+              <div class="card__foot">
+                <a class="card__cta" href="#">
+                  Explore lender solutions
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+              </div>
+            </article>
+
+            <article class="card">
+              <span class="card__icon" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5Z"/><path d="M9 21v-7h6v7"/></svg>
+              </span>
+              <h3>Home Warranty</h3>
+              <p>Protect your budget against costly repairs and replacements on your home's essential systems and appliances — heating, air conditioning, plumbing, dishwashers, ovens, washers, dryers, refrigerators, water heaters and more.</p>
+              <ul class="bullets">
+                <li>Unlimited claims</li>
+                <li>Filing a claim does not increase your rate</li>
+                <li>$1.9 billion in claims paid since 2011</li>
+                <li>Highly rated by customers on major review sites</li>
+              </ul>
+              <div class="card__foot">
+                <a class="btn btn--primary btn--sm" href="#">Get a Quote</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <span class="card__icon" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5"/><path d="M3 12c0 1.7 4 3 9 3s9-1.3 9-3"/></svg>
+              </span>
+              <h3>Real Estate Data Solutions</h3>
+              <p>Instantly research properties, determine homeownership, verify valuation and gain fresh mortgage insights with property-centric data that spans 100% of the nation.</p>
+              <ul class="card__links">
+                <li>Tax Assessor Data</li><li>Deeds &amp; Mortgages</li><li>Foreclosures</li>
+                <li>HOA Data</li><li>Property Characteristics</li><li>Valuation Data</li>
+                <li>Listing Data</li><li>Parcel Boundaries</li>
+              </ul>
+              <div class="card__foot">
+                <a class="card__cta" href="#">
+                  See the data catalogue
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+              </div>
+            </article>
+
+            <article class="card">
+              <span class="card__icon" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22V4a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1v18"/><path d="M15 9h4a1 1 0 0 1 1 1v12"/><path d="M8 7h3M8 11h3M8 15h3M2 22h20"/></svg>
+              </span>
+              <h3>Wealth Management &amp; Banking Services</h3>
+              <p>Gain peace of mind with a partner you can trust for investment management, trust, and banking services — with a special expertise in real estate management.</p>
+              <ul class="card__links">
+                <li>Wealth Management</li><li>Trust Services</li><li>Banking Services</li>
+              </ul>
+              <div class="card__foot">
+                <a class="card__cta" href="#">
+                  Talk to an advisor
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+              </div>
+            </article>
+
+            <article class="card">
+              <span class="card__icon" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z"/></svg>
+              </span>
+              <h3>International Services</h3>
+              <p>Support for cross-border transactions and international clients, backed by the same underwriting strength and local knowledge available across the United States.</p>
+              <ul class="card__links">
+                <li>Canada</li><li>United Kingdom</li><li>Australia</li><li>Korea</li>
+              </ul>
+              <div class="card__foot">
+                <a class="card__cta" href="#">
+                  Explore international services
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================ -->
+      <!-- AMERICA 250                                                      -->
+      <!-- ================================================================ -->
+      <section class="section section--sunken">
+        <div class="shell">
+          <div class="split">
+            <div class="split__text">
+              <p class="section__eyebrow">America 250</p>
+              <h2>250 Years of Dreams, Homes, and Opportunity</h2>
+              <p>As America marks its 250th birthday, we're reflecting on the role property ownership, opportunity, and trust have played in shaping communities across generations.</p>
+              <div class="split__ctas">
+                <a class="btn btn--primary" href="#">Celebrate With Us</a>
+              </div>
+            </div>
+            <div class="visual" aria-hidden="true">
+              <svg viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 90 100 30l80 60v90a6 6 0 0 1-6 6H26a6 6 0 0 1-6-6V90Z"/>
+                <path d="M76 186v-58h48v58"/>
+                <path d="M100 12v18"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================ -->
+      <!-- TITLE INSURANCE VALUE                                            -->
+      <!-- ================================================================ -->
+      <section class="section">
+        <div class="shell">
+          <div class="split split--flip">
+            <div class="split__text">
+              <p class="section__eyebrow">Title Insurance</p>
+              <h2>Experience the freedom of true ownership.</h2>
+              <p>Be certain that your biggest investment is protected. Learn more about the importance of title insurance and how to secure your ownership rights.</p>
+              <div class="split__ctas">
+                <a class="btn btn--primary" href="#">Discover the Power of Title Insurance</a>
+                <a class="btn btn--outline-blue" href="#">Title Fee Calculator</a>
+              </div>
+            </div>
+            <div class="visual visual--light" aria-hidden="true">
+              <svg viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M100 184s66-33 66-82V38l-66-24-66 24v64c0 49 66 82 66 82Z"/>
+                <path d="m74 100 18 18 34-36"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================ -->
+      <!-- TRUST + STATS                                                    -->
+      <!-- ================================================================ -->
+      <section class="section section--dark">
+        <div class="shell">
+          <div class="section__head">
+            <p class="section__eyebrow" style="color: var(--cyan)">Industry Leadership</p>
+            <h2>Trust in the strength of an industry leader.</h2>
+            <p class="section__lede" style="color: rgb(214,227,238)">
+              For more than a century, customers have trusted our dedicated people, our financial
+              strength and our innovative spirit to solve problems and help them move forward.
+            </p>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <p class="stat__value">1 Million</p>
+              <p class="stat__label">Title insurance policies per year</p>
+            </div>
+            <div class="stat">
+              <p class="stat__value">130+</p>
+              <p class="stat__label">Years as an industry leader</p>
+            </div>
+            <div class="stat">
+              <p class="stat__value">16,000</p>
+              <p class="stat__label">Dedicated team members worldwide</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================ -->
+      <!-- HOMEBUYER RESOURCES                                              -->
+      <!-- ================================================================ -->
+      <section class="section">
+        <div class="shell">
+          <div class="split">
+            <div class="split__text">
+              <p class="section__eyebrow">Home Buying Guide</p>
+              <h2>Be at ease in your new home.</h2>
+              <p>Buying a home doesn't have to be overwhelming. Get the guidance you need to understand the homebuying process and the importance of protecting your investment.</p>
+              <div class="split__ctas">
+                <a class="btn btn--primary" href="#">Get Resources for Homeowners</a>
+              </div>
+            </div>
+            <div class="visual visual--light" aria-hidden="true">
+              <svg viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M30 40h58a22 22 0 0 1 22 22v106a18 18 0 0 0-18-18H30V40Z"/>
+                <path d="M170 40h-58a22 22 0 0 0-22 22v106a18 18 0 0 1 18-18h62V40Z"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================ -->
+      <!-- ECONOMIC CENTER                                                  -->
+      <!-- ================================================================ -->
+      <section class="section section--sunken">
+        <div class="shell">
+          <div class="split split--flip">
+            <div class="split__text">
+              <p class="section__eyebrow">Economic Center</p>
+              <h2>Keep pace with changing dynamics.</h2>
+              <p>Our expert economists breakdown residential and commercial real estate trends to help you stay a step ahead.</p>
+              <div class="split__ctas">
+                <a class="btn btn--primary" href="#">Visit the Economic Center</a>
+                <a class="btn btn--outline-blue" href="#">Subscribe to Our Podcast</a>
+              </div>
+            </div>
+            <div class="visual" aria-hidden="true">
+              <svg viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M24 168V60M24 168h152"/>
+                <path d="m48 138 34-34 30 28 46-58"/>
+                <path d="M136 74h22v22"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================ -->
+      <!-- FRAUD PROTECTION                                                 -->
+      <!-- ================================================================ -->
+      <section class="section" id="fraud">
+        <div class="shell">
+          <div class="split">
+            <div class="split__text">
+              <p class="section__eyebrow">Fraud Protection Center</p>
+              <h2>Protect yourself from cyber theft.</h2>
+              <p>Identity theft and cyber crime is on the rise. Stay ahead of the latest threats that can affect your transactions and discover how to protect yourself by visiting First American's Fraud Protection Center.</p>
+              <div class="split__ctas">
+                <a class="btn btn--primary" href="#">Visit Our Fraud Protection Center</a>
+              </div>
+            </div>
+            <div class="visual" aria-hidden="true">
+              <svg viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="42" y="90" width="116" height="82" rx="10"/>
+                <path d="M70 90V62a30 30 0 0 1 60 0v28"/>
+                <path d="M100 122v20"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================ -->
+      <!-- CULTURE + AWARDS                                                 -->
+      <!-- ================================================================ -->
+      <section class="section section--tint">
+        <div class="shell">
+          <div class="section__head">
+            <p class="section__eyebrow">Careers</p>
+            <h2>Working together to elevate and innovate.</h2>
+            <p class="section__lede">Our success is our people. Learn more about the people and culture that make First American a great place to work.</p>
+          </div>
+
+          <div class="awards">
+            <div class="award">Best Companies to Work For® 2026</div>
+            <div class="award">PEOPLE® Companies that Care 2025</div>
+            <div class="award">Fortune Best Workplaces in Financial Services &amp; Insurance™ 2025</div>
+            <div class="award">Fortune Best Workplaces for Women™ 2025</div>
+            <div class="award">Fast Company Best Workplaces for Innovators 2024</div>
+          </div>
+
+          <p style="margin-top: 34px">
+            <a class="btn btn--primary" href="#">Discover Our Team</a>
+          </p>
+        </div>
+      </section>
+
+      <!-- ================================================================ -->
+      <!-- NEWSLETTER                                                       -->
+      <!-- ================================================================ -->
+      <section class="newsletter" id="subscribe">
+        <div class="shell">
+          <div class="newsletter__grid">
+            <div>
+              <p class="section__eyebrow">Stay Informed</p>
+              <h2 style="color: var(--blue); font-weight: 800; letter-spacing: -0.025em; line-height: 1.16; margin-bottom: 16px">
+                Receive the latest research and updates on market trends from First American's economic experts.
+              </h2>
+              <p class="section__lede">
+                Our economists publish weekly. Choose the topics you care about and we will send only those.
+              </p>
+            </div>
+
+            <!-- Validates, then swaps itself for a confirmation. Sends nothing. -->
+            <div class="formcard">
+              <form data-subscribe-form novalidate>
+                <div class="fieldrow">
+                  <div class="field">
+                    <label for="pf-first">First Name <span class="req" aria-hidden="true">*</span></label>
+                    <input id="pf-first" name="firstName" type="text" placeholder="Marisol" required />
+                  </div>
+                  <div class="field">
+                    <label for="pf-last">Last Name <span class="req" aria-hidden="true">*</span></label>
+                    <input id="pf-last" name="lastName" type="text" placeholder="Reyes" required />
+                  </div>
+                  <div class="field field--full">
+                    <label for="pf-email">Email <span class="req" aria-hidden="true">*</span></label>
+                    <input id="pf-email" name="email" type="email" placeholder="you@company.com" required />
+                  </div>
+                  <div class="field field--full">
+                    <label for="pf-role">Job Role</label>
+                    <select id="pf-role" name="role">
+                      <option value="">Select your role…</option>
+                      <option>Residential Real Estate Agent/Broker</option>
+                      <option>Commercial Real Estate Professional</option>
+                      <option>Title Insurance Agent</option>
+                      <option>Mortgage Lender/Broker</option>
+                      <option>Economist</option>
+                      <option>Investor</option>
+                      <option>Homebuyer</option>
+                      <option>Other</option>
+                    </select>
+                  </div>
+                </div>
+
+                <fieldset class="checkgroup" style="border: none; padding: 0; margin-inline: 0">
+                  <legend class="checkgroup__legend">What would you like to receive?</legend>
+                  <label class="check">
+                    <input type="checkbox" name="interests" value="Housing Market Trends" checked />
+                    <span>Housing Market Trends<small>Weekly residential analysis</small></span>
+                  </label>
+                  <label class="check">
+                    <input type="checkbox" name="interests" value="Commercial Real Estate Insights" />
+                    <span>Commercial Real Estate Insights<small>Monthly commercial outlook</small></span>
+                  </label>
+                  <label class="check">
+                    <input type="checkbox" name="interests" value="REconomy Podcast" />
+                    <span>REconomy Podcast<small>New episode alerts</small></span>
+                  </label>
+                </fieldset>
+
+                <button class="btn btn--primary" type="submit" style="width: 100%">Subscribe</button>
+
+                <p class="formnote">
+                  By subscribing you agree to First American's <a href="#">Privacy Policy</a>.
+                  You can unsubscribe at any time.
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ================================================================== -->
+    <!-- FOOTER                                                             -->
+    <!-- ================================================================== -->
+    <footer class="footer">
+      <div class="shell">
+        <div class="footer__grid">
+          <div>
+            <h3>Our Services</h3>
+            <ul>
+              <li><a href="#">Title and Insurance Services</a></li>
+              <li><a href="#">Mortgage Lender and Servicer Solutions</a></li>
+              <li><a href="#">Real Estate Data Solutions</a></li>
+              <li><a href="#">Home Warranty and Insurance</a></li>
+              <li><a href="#">Wealth Management &amp; Banking Services</a></li>
+              <li><a href="#">International Services</a></li>
+              <li><a href="#">Find an Office</a></li>
+              <li><a href="#">Title Fee Calculator</a></li>
+              <li><a href="#">The Value of Title Insurance</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3>About Us</h3>
+            <ul>
+              <li><a href="#">Who We Are</a></li>
+              <li><a href="#">News</a></li>
+              <li><a href="#">FirstAmCares</a></li>
+              <li><a href="#">Company History</a></li>
+              <li><a href="#">Supplier Information</a></li>
+              <li><a href="#">Sustainability</a></li>
+              <li><a href="#">eClosing Center</a></li>
+              <li><a href="#">Economic Center</a></li>
+              <li><a href="#">Home Buying Guide</a></li>
+              <li><a href="#">Fraud Protection Center</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3>Careers</h3>
+            <ul>
+              <li><a href="#">Careers Home</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3>For Investors</h3>
+            <ul>
+              <li><a href="#">Investors Home</a></li>
+              <li><a href="#">Financial Information</a></li>
+              <li><a href="#">Governance</a></li>
+              <li><a href="#">News and Events</a></li>
+              <li><a href="#">Stock Information</a></li>
+              <li><a href="#">Statutory Reporting</a></li>
+              <li><a href="#">Title Order Counts</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3>Connect</h3>
+            <ul>
+              <li><a href="#">Find an Office</a></li>
+              <li><a href="#">Contact Us</a></li>
+            </ul>
+            <div class="socials">
+              <a href="#" aria-label="LinkedIn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.5c0-1.31-.02-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9V21h-4V9Z"/></svg>
+              </a>
+              <a href="#" aria-label="Facebook">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5H16.7V3.6c-.3-.04-1.3-.13-2.47-.13-2.45 0-4.13 1.5-4.13 4.24V9.9H7.4V13h2.7v8h3.4Z"/></svg>
+              </a>
+              <a href="#" aria-label="YouTube">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.76-1.77C18.28 5 12 5 12 5s-6.28 0-7.84.43A2.5 2.5 0 0 0 2.4 7.2 26.1 26.1 0 0 0 2 12a26.1 26.1 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.76 1.77C5.72 19 12 19 12 19s6.28 0 7.84-.43a2.5 2.5 0 0 0 1.76-1.77A26.1 26.1 0 0 0 22 12a26.1 26.1 0 0 0-.4-4.8ZM10 15.2V8.8L15.5 12 10 15.2Z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer__legal">
+          <a href="#">Contact Us</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Accessibility</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">Do Not Sell or Share My Personal Information</a>
+          <a class="spacer" href="#top">Back to Top ↑</a>
+        </div>
+
+        <p class="footer__fineprint">
+          ©2026 First American Financial Corporation and/or its affiliates. All rights reserved.
+          First American, the eagle logo, First American Title, and firstam.com are registered
+          trademarks or trademarks of First American Financial Corporation and/or its affiliates.
+          <br /><br />
+          <strong>This page is a training mockup produced for a workshop and is not affiliated with,
+          endorsed by, or operated by First American Financial Corporation.</strong>
+          No form on this page transmits data anywhere.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      /* ====================================================================
+         All the behaviour on this page: the sign-in dropdown, the slide-out
+         navigation, and the newsletter form. No dependencies.
+         ==================================================================== */
+      (function () {
+        'use strict';
+
+        /* --- Sign-in dropdown --------------------------------------------- */
+        var signin = document.getElementById('signin');
+        var signinToggle = document.getElementById('signinToggle');
+
+        signinToggle.addEventListener('click', function (event) {
+          event.stopPropagation();
+          var open = signin.classList.toggle('is-open');
+          signinToggle.setAttribute('aria-expanded', String(open));
+        });
+
+        // Click-away and Escape. Both, because a dropdown that only closes on
+        // one of them feels broken in whichever way the user tried first.
+        document.addEventListener('click', function (event) {
+          if (!signin.contains(event.target)) {
+            signin.classList.remove('is-open');
+            signinToggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+
+        /* --- Slide-out navigation ------------------------------------------ */
+        var navDrawer = document.getElementById('navDrawer');
+        var navToggle = document.getElementById('navToggle');
+
+        function openNav() {
+          navDrawer.hidden = false;
+          navDrawer.classList.add('is-open');
+          document.body.classList.add('is-locked');
+          navToggle.setAttribute('aria-expanded', 'true');
+
+          requestAnimationFrame(function () {
+            navDrawer.classList.add('is-visible');
+            var first = navDrawer.querySelector('a, button');
+            if (first) first.focus();
+          });
+        }
+
+        function closeNav() {
+          navDrawer.classList.remove('is-visible');
+          document.body.classList.remove('is-locked');
+          navToggle.setAttribute('aria-expanded', 'false');
+
+          window.setTimeout(function () {
+            navDrawer.classList.remove('is-open');
+            navDrawer.hidden = true;
+            navToggle.focus();
+          }, 260);
+        }
+
+        navToggle.addEventListener('click', openNav);
+
+        var navClosers = navDrawer.querySelectorAll('[data-close-nav]');
+        for (var n = 0; n < navClosers.length; n += 1) {
+          navClosers[n].addEventListener('click', closeNav);
+        }
+
+        // Any link in the drawer is a navigation, so the drawer should get out
+        // of the way rather than sitting over the place it just sent you.
+        var navLinks = navDrawer.querySelectorAll('a');
+        for (var l = 0; l < navLinks.length; l += 1) {
+          navLinks[l].addEventListener('click', closeNav);
+        }
+
+        /* --- Shared overlay helpers ---------------------------------------- */
+        var FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled])';
+
+        /**
+         * Keep Tab inside `container`. Getting this subtly wrong is invisible
+         * until someone tabs off the end of the panel and lands on the page
+         * behind it, which reads as the panel having closed.
+         */
+        function trapWithin(container, event) {
+          var items = container.querySelectorAll(FOCUSABLE);
+          if (!items.length) return;
+
+          var first = items[0];
+          var last = items[items.length - 1];
+
+          if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last.focus();
+          } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first.focus();
+          }
+        }
+
+        document.addEventListener('keydown', function (event) {
+          if (!navDrawer.classList.contains('is-open')) return;
+
+          if (event.key === 'Escape') closeNav();
+          if (event.key === 'Tab') trapWithin(navDrawer, event);
+        });
+
+        /* --- Subscribe ------------------------------------------------------
+           One handler for both copies of the form. Nothing is transmitted and
+           nothing is stored: there is no back end here, and this page has no
+           connection to the CRM. The success state is the whole behaviour.
+           ------------------------------------------------------------------ */
+        function bindForm(form) {
+          if (!form) return;
+
+          form.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Let the browser do the validating. It gives real messages in the
+            // user's own language and handles the email format for free.
+            if (!form.checkValidity()) {
+              form.reportValidity();
+              return;
+            }
+
+            var data = new FormData(form);
+            var interests = data.getAll('interests');
+            var email = String(data.get('email'));
+            var name = String(data.get('firstName'));
+
+            var card = form.closest('.formcard');
+            card.innerHTML = '';
+            card.appendChild(buildSuccess(name, email, interests));
+          });
+        }
+
+        function buildSuccess(name, email, interests) {
+          var wrap = document.createElement('div');
+          wrap.className = 'success';
+
+          wrap.innerHTML =
+            '<div class="success__icon" aria-hidden="true">' +
+              '<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
+              'stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5"/></svg>' +
+            '</div>' +
+            '<h3>You’re on the list' + (name ? ', ' + escapeHtml(name) : '') + '.</h3>' +
+            '<p>We’ll send the white paper and your selected updates to ' +
+              '<strong>' + escapeHtml(email) + '</strong>.</p>' +
+            (interests.length
+              ? '<p>Subscribed to: ' + escapeHtml(interests.join(', ')) + '.</p>'
+              : '<p>No topics selected — you’ll only get the white paper.</p>') +
+            '<p class="tag">Training mockup — nothing was sent or stored.</p>';
+
+          // aria-live so a screen reader announces the confirmation, which
+          // otherwise happens entirely silently.
+          wrap.setAttribute('role', 'status');
+          wrap.setAttribute('aria-live', 'polite');
+          return wrap;
+        }
+
+        function escapeHtml(value) {
+          var div = document.createElement('div');
+          div.textContent = value;
+          return div.innerHTML;
+        }
+
+        var forms = document.querySelectorAll('[data-subscribe-form]');
+        for (var f = 0; f < forms.length; f += 1) bindForm(forms[f]);
+      })();
+    </script>
+  </body>
+</html>

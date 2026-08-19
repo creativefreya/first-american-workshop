@@ -1,0 +1,113 @@
+/* ProgressTrack ------------------------------------------------------------ */
+
+.track {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  counter-reset: step;
+}
+
+.track__step {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
+
+/* The connector is drawn by the step to its right, so the last step has none
+   and there is no trailing line running off the end of the track. */
+.track__step:not(:first-child)::before {
+  content: '';
+  position: absolute;
+  top: 9px;
+  right: 50%;
+  left: -50%;
+  height: 2px;
+  background: var(--border-base);
+}
+
+.track__step--done::before,
+.track__step--current::before {
+  background: var(--fa-action);
+}
+
+.track__hit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  width: 100%;
+  padding: 0 var(--space-1);
+  background: none;
+  border: none;
+  font: inherit;
+  text-align: center;
+}
+
+button.track__hit { cursor: pointer; }
+
+.track__marker {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--border-base);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--fa-white);
+  transition:
+    background-color var(--duration-base) var(--ease-out),
+    border-color var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out);
+}
+
+.track__label {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-snug);
+  color: var(--text-muted);
+}
+
+/* States ------------------------------------------------------------------- */
+
+.track__step--done .track__marker {
+  background: var(--fa-action);
+  border-color: var(--fa-action);
+}
+
+.track__step--done .track__label { color: var(--text-secondary); }
+
+.track__step--current .track__marker {
+  background: var(--fa-action);
+  border-color: var(--fa-action);
+  box-shadow: 0 0 0 4px rgb(0 117 195 / 0.16);
+}
+
+.track__step--current .track__label {
+  color: var(--fa-blue);
+  font-weight: var(--weight-semibold);
+}
+
+button.track__hit:hover .track__marker {
+  border-color: var(--fa-action);
+}
+
+button.track__hit:hover .track__label {
+  color: var(--fa-action);
+}
+
+/* Terminated --------------------------------------------------------------- */
+
+.track--terminated {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border: 1px solid var(--border-base);
+  border-radius: var(--radius-card);
+  background: var(--status-danger-bg);
+  color: var(--status-danger-fg);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+}

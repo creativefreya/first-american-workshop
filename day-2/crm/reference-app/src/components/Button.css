@@ -1,0 +1,105 @@
+/* Button ------------------------------------------------------------------ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  height: var(--control-height);
+  padding: 0 var(--space-3);
+  border: 1px solid transparent;
+  border-radius: var(--radius-control);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  line-height: 1;
+  white-space: nowrap;
+  transition:
+    background-color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Sizes ------------------------------------------------------------------- */
+
+.btn--sm {
+  height: 26px;
+  padding: 0 var(--space-2);
+  font-size: var(--text-xs);
+  letter-spacing: 0.01em;
+}
+
+.btn--icon-only {
+  width: var(--control-height);
+  padding: 0;
+}
+
+.btn--icon-only.btn--sm {
+  width: 26px;
+}
+
+/* Variants ---------------------------------------------------------------- */
+
+.btn--primary {
+  background: var(--action-bg);
+  color: var(--action-fg);
+  box-shadow: var(--shadow-xs);
+}
+
+.btn--primary:hover:not(:disabled) {
+  background: var(--action-bg-hover);
+}
+
+.btn--primary:active:not(:disabled) {
+  background: var(--action-bg-active);
+  box-shadow: none;
+}
+
+.btn--secondary {
+  background: var(--surface);
+  border-color: var(--border-strong);
+  color: var(--text-primary);
+}
+
+.btn--secondary:hover:not(:disabled) {
+  background: var(--surface-hover);
+  border-color: var(--text-muted);
+}
+
+.btn--secondary:active:not(:disabled) {
+  background: var(--surface-selected);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--text-secondary);
+}
+
+.btn--ghost:hover:not(:disabled) {
+  background: var(--surface-selected);
+  color: var(--fa-blue);
+}
+
+.btn--danger {
+  background: var(--surface);
+  border-color: var(--border-strong);
+  color: var(--status-danger-fg);
+}
+
+.btn--danger:hover:not(:disabled) {
+  background: var(--status-danger-bg);
+  border-color: var(--status-danger-fg);
+}
+
+/* Groups ------------------------------------------------------------------ */
+
+.btn-group {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}

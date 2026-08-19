@@ -1,0 +1,317 @@
+/* AppShell ------------------------------------------------------------------
+   Corporate product chrome: white shell, brand navy used for identity and
+   active state only, action blue for anything clickable. Dense by default. */
+
+.shell {
+  display: grid;
+  grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+  height: 100vh;
+  height: 100dvh;
+}
+
+.skip-link {
+  position: absolute;
+  top: var(--space-2);
+  left: var(--space-2);
+  z-index: var(--z-toast);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-control);
+  background: var(--fa-blue);
+  color: var(--fa-white);
+  font-size: var(--text-sm);
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+  text-decoration: none;
+}
+
+/* Sidebar ------------------------------------------------------------------ */
+
+.shell__sidebar {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--border-base);
+  background: var(--surface);
+  overflow-y: auto;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  height: var(--topbar-height);
+  padding: 0 var(--space-4);
+  border-bottom: 1px solid var(--border-hairline);
+  color: inherit;
+  text-decoration: none;
+  flex: none;
+}
+
+.brand:hover { text-decoration: none; }
+
+/* An abstract mark rather than the real First American logo — this is a
+   training build, and shipping someone else's trademark into a repo forty
+   people will fork is not a thing to do casually. Swap in the real asset if
+   this ever becomes anything but a demo. */
+.brand__mark {
+  width: 26px;
+  height: 26px;
+  flex: none;
+  border-radius: 3px;
+  background:
+    linear-gradient(135deg, var(--fa-blue) 0%, var(--fa-blue-tint-100) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.brand__mark::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 8px;
+  background: var(--fa-cyan);
+  opacity: 0.9;
+}
+
+.brand__name {
+  font-size: var(--text-md);
+  font-weight: var(--weight-bold);
+  color: var(--fa-blue);
+  letter-spacing: var(--tracking-tight);
+  line-height: 1.15;
+  min-width: 0;
+}
+
+/* Nav ---------------------------------------------------------------------- */
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: var(--space-3) var(--space-2);
+}
+
+.nav__link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-control);
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  text-decoration: none;
+  transition:
+    background-color var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out);
+}
+
+.nav__link:hover {
+  background: var(--surface-hover);
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.nav__link .icon { color: var(--text-muted); flex: none; }
+
+.nav__link:hover .icon { color: var(--text-secondary); }
+
+.nav__link.is-active {
+  background: var(--surface-selected);
+  color: var(--fa-blue);
+  font-weight: var(--weight-semibold);
+}
+
+.nav__link.is-active .icon { color: var(--fa-action); }
+
+.nav__link--quiet {
+  width: 100%;
+  color: var(--text-muted);
+  font-weight: var(--weight-regular);
+  text-align: left;
+}
+
+.shell__sidebar-footer {
+  margin-top: auto;
+  padding: var(--space-2);
+  border-top: 1px solid var(--border-hairline);
+}
+
+.account {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  min-width: 0;
+}
+
+.account__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  min-width: 0;
+}
+
+.account__name {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.account__meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Content column ----------------------------------------------------------- */
+
+.shell__content {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+}
+
+.shell__topbar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  height: var(--topbar-height);
+  flex: none;
+  padding: 0 var(--space-5);
+  border-bottom: 1px solid var(--border-base);
+  background: var(--surface);
+}
+
+.shell__menu {
+  display: none;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-control);
+  color: var(--text-secondary);
+}
+
+.shell__menu:hover { background: var(--surface-hover); }
+
+.shell__breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-width: 0;
+  font-size: var(--text-sm);
+}
+
+.shell__crumb-root {
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.shell__crumb-sep { color: var(--border-strong); flex: none; }
+
+.shell__crumb-current {
+  font-weight: var(--weight-semibold);
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.shell__topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-left: auto;
+}
+
+/* Slots the shell repaints on every route change. `display: contents` so an
+   empty slot takes no space and adds no gap — a route with no action should
+   look like it has no action, not like one failed to render. */
+.shell__search-slot,
+.shell__action-slot {
+  display: contents;
+}
+
+/* A hint, not a search field. Two search inputs on one screen is a coin toss
+   about which one filters the table, so this jumps to the real one. */
+.shell__search-hint {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  height: var(--control-height);
+  padding: 0 var(--space-2) 0 var(--space-3);
+  border: 1px solid var(--border-base);
+  border-radius: var(--radius-control);
+  background: var(--surface-sunken);
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+  transition: border-color var(--duration-fast) var(--ease-out);
+}
+
+.shell__search-hint:hover {
+  border-color: var(--border-strong);
+  color: var(--text-secondary);
+}
+
+.shell__search-hint kbd {
+  padding: 1px 5px;
+  border: 1px solid var(--border-base);
+  border-radius: 3px;
+  background: var(--surface);
+  font-family: inherit;
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+}
+
+.shell__main {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  background: var(--surface-sunken);
+}
+
+.shell__main:focus { outline: none; }
+
+.shell__backdrop { display: none; }
+
+/* Responsive ---------------------------------------------------------------
+   Breakpoint literals repeat the --fa-breakpoint-* tokens because media
+   queries cannot read custom properties. Documented in tokens.css. */
+
+@media (max-width: 1024px) {
+  .shell { grid-template-columns: minmax(0, 1fr); }
+
+  .shell__sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
+    z-index: calc(var(--z-drawer) - 1);
+    width: var(--sidebar-width);
+    transform: translateX(-100%);
+    transition: transform var(--duration-base) var(--ease-out);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .shell.is-nav-open .shell__sidebar { transform: translateX(0); }
+
+  .shell.is-nav-open .shell__backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: calc(var(--z-drawer) - 2);
+    background: rgb(0 23 44 / 0.28);
+  }
+
+  .shell__menu { display: grid; }
+}
+
+@media (max-width: 768px) {
+  .shell__search-hint { display: none; }
+  .shell__topbar { padding: 0 var(--space-4); }
+}

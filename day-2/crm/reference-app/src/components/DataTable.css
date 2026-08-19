@@ -1,0 +1,204 @@
+/* DataTable ----------------------------------------------------------------
+   Dense by design. --row-height in tokens.css is the one knob; change it there
+   and the header, cells and indicators all follow. */
+
+.table-wrap {
+  border: 1px solid var(--border-base);
+  border-radius: var(--radius-card);
+  background: var(--surface);
+  overflow: auto hidden;
+}
+
+/* table-layout: fixed is doing real work here, not micro-optimising.
+   Under the default `auto` layout the browser measures every cell and then
+   redistributes, so the widths declared in the column config are treated as
+   suggestions — a long email address steals space from the phone column and
+   the date wraps onto a second line, which breaks the fixed row height the
+   whole design depends on. Fixed layout honours the declared widths, makes
+   ellipsis truncation work, and renders in one pass instead of two. */
+.table {
+  width: 100%;
+  /* Below this the percentage columns get too narrow for their content and
+     start truncating values that matter — a price or a stage name. The wrapper
+     scrolls horizontally instead, which is the honest failure mode: the reader
+     can still get to the data. */
+  min-width: 1060px;
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: var(--text-sm);
+}
+
+/* Header ------------------------------------------------------------------ */
+
+.table__th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  height: 34px;
+  padding: 0 var(--space-3);
+  background: var(--surface-sunken);
+  border-bottom: 1px solid var(--border-base);
+  text-align: left;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.table__th--right { text-align: right; }
+
+/* Percentage, not px. Under `table-layout: fixed` a mix of px and % columns
+   distributes any leftover width in a way that is browser-defined and, in
+   practice, unhelpful — px columns get the surplus and the % columns starve.
+   Every column in this table declares a percentage and they sum to 100, so
+   the layout is exactly what the column config says it is. */
+/* 4%, not 3%. At 3% the content box was about 8px wide once padding was
+   subtracted, so every row from 10 onward silently rendered its second digit
+   clipped in half — "10" read as "1C". Cheap to miss by eye; caught by
+   comparing scrollWidth to clientWidth. */
+.table__th--index {
+  width: 4%;
+  padding-left: var(--space-3);
+  color: var(--border-strong);
+}
+
+.table__sort {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  height: 100%;
+  color: inherit;
+  font: inherit;
+  text-transform: inherit;
+  letter-spacing: inherit;
+}
+
+.table__sort:hover { color: var(--fa-action); }
+
+/* The chevron holds its space at all times so the header never reflows when a
+   column is sorted — a 12px jump across eight columns is very visible. */
+.table__sort .icon {
+  opacity: 0;
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+
+.table__sort:hover .icon { opacity: 0.5; }
+
+.table__th.is-sorted { color: var(--fa-blue); }
+
+.table__th.is-sorted .icon { opacity: 1; }
+
+.table__th--right .table__sort { flex-direction: row-reverse; }
+
+/* Rows -------------------------------------------------------------------- */
+
+.table__row {
+  transition: background-color var(--duration-fast) var(--ease-out);
+}
+
+.table__row:hover { background: var(--surface-hover); }
+
+.table__row--clickable { cursor: pointer; }
+
+.table__row:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: -2px;
+}
+
+.table__td {
+  height: var(--row-height);
+  padding: 0 var(--space-3);
+  border-bottom: 1px solid var(--border-hairline);
+  color: var(--text-primary);
+  vertical-align: middle;
+  /* Truncate rather than wrap. A row that grows to two lines because one
+     value was long makes the whole table hard to scan, and scanning is the
+     only thing this screen is for. Anything truncated is in the drawer. */
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.table__row:last-child .table__td { border-bottom: none; }
+
+.table__td--right { text-align: right; }
+
+.table__td--index {
+  padding-left: var(--space-4);
+  color: var(--text-muted);
+  font-size: var(--text-xs);
+}
+
+/* Cell content helpers ----------------------------------------------------- */
+
+.cell-primary {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.cell-primary__text {
+  min-width: 0;
+}
+
+.cell-title {
+  display: block;
+  font-weight: var(--weight-semibold);
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cell-sub {
+  display: block;
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cell-mono {
+  font-variant-numeric: tabular-nums;
+  color: var(--text-secondary);
+}
+
+.cell-strong {
+  font-weight: var(--weight-semibold);
+  font-variant-numeric: tabular-nums;
+}
+
+.cell-muted { color: var(--text-muted); }
+
+/* Flex containers inside a cell must not wrap. `.row` wraps by default, which
+   is right in a drawer and wrong here: a second line inside one cell makes
+   that one row taller than every other, and the eye reads the misalignment
+   long before it reads the data. */
+.table__td .row,
+.table__td .cell-actions {
+  flex-wrap: nowrap;
+}
+
+/* Row actions appear on hover or keyboard focus, and are always in the DOM so
+   the column does not resize as the pointer moves down the table. */
+.cell-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-1);
+  opacity: 0;
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+
+.table__row:hover .cell-actions,
+.table__row:focus-within .cell-actions {
+  opacity: 1;
+}
+
+@media (hover: none) {
+  .cell-actions { opacity: 1; }
+}

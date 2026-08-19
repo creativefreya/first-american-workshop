@@ -1,0 +1,27 @@
+/* Avatar ------------------------------------------------------------------ */
+
+.avatar {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--avatar-bg);
+  color: var(--avatar-fg);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.02em;
+  font-variant-numeric: normal;
+  user-select: none;
+}
+
+.avatar--sm { width: 22px; height: 22px; font-size: 9px; }
+.avatar--md { width: 28px; height: 28px; font-size: 11px; }
+.avatar--lg { width: 44px; height: 44px; font-size: 15px; }
+
+/* Five tints along the brand blue ramp, plus one cyan for variety. Quiet on
+   purpose: these sit 30 to a screen. */
+.avatar--tint-0 { --avatar-bg: var(--fa-blue-tint-900); --avatar-fg: var(--fa-blue); }
+.avatar--tint-1 { --avatar-bg: rgb(224, 238, 246);      --avatar-fg: rgb(15, 106, 148); }
+.avatar--tint-2 { --avatar-bg: rgb(232, 237, 243);      --avatar-fg: var(--fa-blue-tint-100); }
+.avatar--tint-3 { --avatar-bg: rgb(237, 234, 245);      --avatar-fg: var(--status-purple-fg); }
+.avatar--tint-4 { --avatar-bg: rgb(228, 240, 235);      --avatar-fg: var(--status-success-fg); }

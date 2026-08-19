@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>First American — CRM</title>
+    <meta
+      name="description"
+      content="A transaction CRM for a real estate professional, built in the First American design system. Training reference build — all data is fictional."
+    />
+    <meta name="robots" content="noindex" />
+
+    <!--
+      Figtree is First American's brand typeface. Loaded from Google Fonts with
+      a system fallback stack, so the app still renders correctly on a machine
+      with no network — it just does not look like First American.
+
+      If this is ever deployed somewhere the CDN is blocked, self-host the woff2
+      and swap the link for an @font-face rule. That is the only change needed.
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap"
+    />
+
+    <!--
+      Stylesheets, in cascade order. Explicit <link> tags rather than @import
+      because @import creates a serial request waterfall the browser cannot
+      parallelise, and because listing them here documents what the design
+      system contains.
+
+      Order matters: tokens define the variables, base resets the elements,
+      components style themselves, app.css holds page layout.
+    -->
+    <link rel="stylesheet" href="src/styles/tokens.css" />
+    <link rel="stylesheet" href="src/styles/base.css" />
+
+    <link rel="stylesheet" href="src/components/Button.css" />
+    <link rel="stylesheet" href="src/components/Pill.css" />
+    <link rel="stylesheet" href="src/components/Avatar.css" />
+    <link rel="stylesheet" href="src/components/Field.css" />
+    <link rel="stylesheet" href="src/components/StatCard.css" />
+    <link rel="stylesheet" href="src/components/DataTable.css" />
+    <link rel="stylesheet" href="src/components/Toolbar.css" />
+    <link rel="stylesheet" href="src/components/EmptyState.css" />
+    <link rel="stylesheet" href="src/components/Overlay.css" />
+    <link rel="stylesheet" href="src/components/Toast.css" />
+    <link rel="stylesheet" href="src/components/Tabs.css" />
+    <link rel="stylesheet" href="src/components/ProgressTrack.css" />
+    <link rel="stylesheet" href="src/components/Timeline.css" />
+    <link rel="stylesheet" href="src/components/BarChart.css" />
+    <link rel="stylesheet" href="src/components/AppShell.css" />
+
+    <link rel="stylesheet" href="src/styles/app.css" />
+
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23013a6f'/%3E%3Crect y='24' width='32' height='8' fill='%234eade1'/%3E%3C/svg%3E"
+    />
+  </head>
+
+  <body>
+    <!--
+      The app renders into here. Everything visible on this page is built in
+      JavaScript, which is a reasonable trade for an internal tool behind a
+      login and a bad one for a public marketing site — worth knowing which
+      kind of thing you are building before you copy this pattern.
+    -->
+    <div id="app"></div>
+
+    <noscript>
+      <p style="padding: 2rem; font-family: system-ui">
+        This application needs JavaScript enabled.
+      </p>
+    </noscript>
+
+    <script type="module" src="src/main.js"></script>
+  </body>
+</html>

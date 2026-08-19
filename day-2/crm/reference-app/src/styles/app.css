@@ -1,0 +1,472 @@
+/* =============================================================================
+   APP — page-level layout primitives shared by every view.
+
+   These are layout, not components: a Page, a Section, a Card, a definition
+   list. They live here rather than in src/components because none of them has
+   behaviour, and a component with no JavaScript is just a class name.
+   ============================================================================= */
+
+/* Page --------------------------------------------------------------------- */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  max-width: var(--content-max);
+  padding: var(--space-5) var(--space-5) var(--space-10);
+  margin: 0 auto;
+}
+
+.page__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.page__title {
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--text-primary);
+}
+
+.page__lede {
+  margin-top: var(--space-1);
+  max-width: 62ch;
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+/* Section ------------------------------------------------------------------ */
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.section__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.section__title {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--text-muted);
+}
+
+.section__link {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+}
+
+/* Card --------------------------------------------------------------------- */
+
+.card {
+  border: 1px solid var(--border-base);
+  border-radius: var(--radius-card);
+  background: var(--surface);
+}
+
+.card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-4) 0;
+}
+
+.card__title {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--text-primary);
+}
+
+.card__body { padding: var(--space-4); }
+
+.card__foot {
+  padding: var(--space-3) var(--space-4);
+  border-top: 1px solid var(--border-hairline);
+  background: var(--surface-sunken);
+  border-radius: 0 0 var(--radius-card) var(--radius-card);
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+/* Two-column dashboard grid. Collapses rather than squeezing: a 300px chart
+   is worse than a stacked one.
+
+   align-items: start stops a short card being stretched to match a tall one
+   beside it — grid's default is `stretch`, which leaves a block of empty white
+   under the shorter card and makes it look like content failed to load. */
+.grid-2 {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  align-items: start;
+}
+
+@media (max-width: 1180px) {
+  .grid-2 { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* Definition list ----------------------------------------------------------
+   Label / value pairs in the drawer. A real <dl>, because that is what this
+   is, and it gives screen readers the pairing for free. */
+
+.details {
+  display: grid;
+  grid-template-columns: 132px minmax(0, 1fr);
+  gap: var(--space-2) var(--space-4);
+  margin: 0;
+  font-size: var(--text-sm);
+}
+
+.details dt {
+  color: var(--text-muted);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  font-weight: var(--weight-semibold);
+  padding-top: 2px;
+}
+
+.details dd {
+  margin: 0;
+  color: var(--text-primary);
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+/* Drawer content blocks ----------------------------------------------------- */
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.stack--tight { gap: var(--space-3); }
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.row--between { justify-content: space-between; }
+
+.block-title {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--text-muted);
+}
+
+/* Risk list ---------------------------------------------------------------- */
+
+.risk {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border: 1px solid var(--border-base);
+  border-left: 3px solid var(--risk-edge, var(--border-strong));
+  border-radius: var(--radius-control);
+  background: var(--surface);
+  text-align: left;
+  width: 100%;
+  transition: background-color var(--duration-fast) var(--ease-out);
+}
+
+button.risk:hover { background: var(--surface-hover); }
+
+.risk--danger { --risk-edge: var(--fa-red); }
+.risk--warning { --risk-edge: var(--fa-yellow); }
+.risk--cleared { --risk-edge: var(--border-base); opacity: 0.6; }
+
+.risk__body { flex: 1; min-width: 0; }
+
+.risk__label {
+  display: block;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--text-primary);
+}
+
+.risk__detail {
+  display: block;
+  margin-top: 2px;
+  font-size: var(--text-xs);
+  line-height: var(--leading-snug);
+  color: var(--text-muted);
+}
+
+.risk--cleared .risk__label { text-decoration: line-through; }
+
+/* Notes -------------------------------------------------------------------- */
+
+.note {
+  padding: var(--space-3);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-control);
+  background: var(--surface-sunken);
+}
+
+.note__body {
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+  color: var(--text-primary);
+  white-space: pre-wrap;
+}
+
+.note__meta {
+  margin-top: var(--space-2);
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+}
+
+/* Task list ---------------------------------------------------------------- */
+
+.task {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.task:last-child { border-bottom: none; }
+
+.task__check {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid var(--border-strong);
+  border-radius: 3px;
+  background: var(--surface);
+  color: transparent;
+  transition:
+    background-color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out);
+}
+
+.task__check:hover { border-color: var(--fa-action); }
+
+.task.is-done .task__check {
+  background: var(--fa-action);
+  border-color: var(--fa-action);
+  color: var(--fa-white);
+}
+
+.task__body { flex: 1; min-width: 0; }
+
+.task__title {
+  display: block;
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+}
+
+.task.is-done .task__title {
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+
+.task__meta {
+  display: block;
+  margin-top: 1px;
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+}
+
+.task__due--overdue { color: var(--status-danger-fg); font-weight: var(--weight-semibold); }
+.task__due--today { color: var(--status-warning-fg); font-weight: var(--weight-semibold); }
+
+/* Attention list (dashboard) ------------------------------------------------ */
+
+.attention {
+  display: flex;
+  flex-direction: column;
+  margin: calc(var(--space-2) * -1) 0;
+}
+
+.attention__row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  padding: var(--space-2);
+  margin: 0 calc(var(--space-2) * -1);
+  border-radius: var(--radius-control);
+  text-align: left;
+  transition: background-color var(--duration-fast) var(--ease-out);
+}
+
+.attention__row:hover { background: var(--surface-hover); }
+
+.attention__text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.attention__title {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.attention__reason {
+  font-size: var(--text-xs);
+  color: var(--status-danger-fg);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.attention__aside {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex: none;
+}
+
+.attention__value {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  font-variant-numeric: tabular-nums;
+  color: var(--text-secondary);
+}
+
+/* Mini task (dashboard) ----------------------------------------------------- */
+
+.mini-task {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.mini-task:last-child { border-bottom: none; }
+
+.mini-task .icon {
+  margin-top: 2px;
+  flex: none;
+  color: var(--status-warning-fg);
+}
+
+.mini-task__icon--overdue { color: var(--status-danger-fg); }
+
+.mini-task__text { display: flex; flex-direction: column; min-width: 0; }
+
+.mini-task__title {
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+  line-height: var(--leading-snug);
+}
+
+.mini-task__meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+}
+
+/* Inline link button --------------------------------------------------------
+   A button that has to look like a link, because it triggers a drawer rather
+   than navigating. An <a href="#"> here would put a junk entry in the back
+   button's history for every click. */
+
+.link-button {
+  color: var(--text-link);
+  font: inherit;
+  font-size: inherit;
+  text-align: left;
+}
+
+.link-button:hover { text-decoration: underline; }
+
+/* Drawer content wrapper ---------------------------------------------------- */
+
+.drawer-content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.drawer-content .tabs { flex: 1; }
+
+/* Boot error ---------------------------------------------------------------
+   Shown when the data file cannot be fetched — almost always because the app
+   was opened as a file:// URL. Styled inline-ish and unbranded on purpose:
+   this has to render even if something about the app is broken. */
+
+.boot-error {
+  max-width: 56ch;
+  margin: var(--space-16) auto;
+  padding: var(--space-6);
+  border: 1px solid var(--border-base);
+  border-left: 3px solid var(--fa-red);
+  border-radius: var(--radius-card);
+  background: var(--surface);
+}
+
+.boot-error h1 {
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-3);
+}
+
+.boot-error p {
+  margin-bottom: var(--space-3);
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+  color: var(--text-secondary);
+}
+
+.boot-error code {
+  padding: 1px 4px;
+  border-radius: 3px;
+  background: var(--surface-sunken);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.92em;
+}
+
+.boot-error pre {
+  padding: var(--space-3);
+  margin-bottom: var(--space-3);
+  border-radius: var(--radius-control);
+  background: var(--fa-blue-shade-500);
+  color: var(--fa-white);
+  overflow-x: auto;
+}
+
+.boot-error pre code { background: none; color: inherit; }
+
+/* Utilities ---------------------------------------------------------------- */
+
+.text-muted { color: var(--text-muted); }
+.text-sm { font-size: var(--text-sm); }
+.nowrap { white-space: nowrap; }
+.mono { font-variant-numeric: tabular-nums; }
+
+@media (max-width: 768px) {
+  .page { padding: var(--space-4) var(--space-4) var(--space-10); }
+  .details { grid-template-columns: minmax(0, 1fr); gap: var(--space-1) 0; }
+  .details dd { margin-bottom: var(--space-2); }
+}

@@ -1,0 +1,1803 @@
+{
+  "agent": {
+    "name": "Marisol Reyes",
+    "title": "Broker Associate",
+    "brokerage": "Reyes & Co. Realty",
+    "email": "marisol@reyesandco.com",
+    "license": "DRE #02184417"
+  },
+  "deals": [
+    {
+      "id": "deal_s001",
+      "fileNumber": "FA-2026-1041",
+      "clientName": "Alicia Nakamura",
+      "clientEmail": "a.nakamura@gmail.com",
+      "clientPhone": "7145550183",
+      "side": "buy",
+      "address": "1428 Camellia Court",
+      "city": "Tustin",
+      "state": "CA",
+      "zip": "92780",
+      "propertyType": "Single family",
+      "price": 1285000,
+      "commissionRate": 2.5,
+      "stage": "clear-to-close",
+      "stageSince": "2026-08-12",
+      "openedOn": "2026-06-30",
+      "closingDate": "2026-08-21",
+      "source": "referral",
+      "escrowOfficer": "Dana Whitfield",
+      "lender": "Harborline Mortgage",
+      "titleOfficer": "Renata Cho",
+      "risks": [],
+      "notes": [
+        {
+          "id": "note_s001",
+          "body": "Buyer confirmed wire instructions by phone with Dana on the 12th. Verbal callback logged.",
+          "createdAt": "2026-07-04T04:11:00.000Z",
+          "author": "Marisol Reyes"
+        }
+      ],
+      "timeline": [
+        {
+          "id": "evt_s001",
+          "label": "Cleared to close",
+          "at": "2026-08-13T00:07:00.000Z",
+          "kind": "stage"
+        },
+        {
+          "id": "evt_s002",
+          "label": "Loan docs out for signature",
+          "at": "2026-08-11T00:14:00.000Z",
+          "kind": "document"
+        },
+        {
+          "id": "evt_s003",
+          "label": "Appraisal returned at value",
+          "at": "2026-08-03T00:21:00.000Z",
+          "kind": "document"
+        },
+        {
+          "id": "evt_s004",
+          "label": "Transaction opened",
+          "at": "2026-06-30T23:28:00.000Z",
+          "kind": "system"
+        }
+      ]
+    },
+    {
+      "id": "deal_s002",
+      "fileNumber": "FA-2026-1042",
+      "clientName": "Desmond Ferrell",
+      "clientEmail": "d.ferrell@outlook.com",
+      "clientPhone": "9495550142",
+      "side": "sell",
+      "address": "77 Windrow Lane",
+      "city": "Irvine",
+      "state": "CA",
+      "zip": "92602",
+      "propertyType": "Single family",
+      "price": 1640000,
+      "commissionRate": 2.5,
+      "stage": "clear-to-close",
+      "stageSince": "2026-08-14",
+      "openedOn": "2026-06-16",
+      "closingDate": "2026-08-19",
+      "source": "repeat-client",
+      "escrowOfficer": "Priya Raghunathan",
+      "lender": "Cash \u2014 no financing",
+      "titleOfficer": "Miguel Ochoa",
+      "risks": [
+        "docs-outstanding"
+      ],
+      "notes": [
+        {
+          "id": "note_s002",
+          "body": "Seller travelling until Thursday \u2014 signing booked for Friday 8am, mobile notary confirmed.",
+          "createdAt": "2026-06-20T04:22:00.000Z",
+          "author": "Marisol Reyes"
+        }
+      ],
+      "timeline": [
+        {
+          "id": "evt_s005",
+          "label": "Cleared to close",
+          "at": "2026-08-15T00:35:00.000Z",
+          "kind": "stage"
+        },
+        {
+          "id": "evt_s006",
+          "label": "Buyer removed all contingencies",
+          "at": "2026-08-12T00:42:00.000Z",
+          "kind": "document"
+        },
+        {
+          "id": "evt_s007",
+          "label": "Transaction opened",
+          "at": "2026-06-16T23:49:00.000Z",
+          "kind": "system"
+        }
+      ]
+    },
+    {
+      "id": "deal_s003",
+      "fileNumber": "FA-2026-1043",
+      "clientName": "Rosalind Achebe",
+      "clientEmail": "rosalind.a@icloud.com",
+      "clientPhone": "7145550119",
+      "side": "buy",
+      "address": "3902 Bristol Street, Unit 12",
+      "city": "Santa Ana",
+      "state": "CA",
+      "zip": "92704",
+      "propertyType": "Condominium",
+      "price": 615000,
+      "commissionRate": 2.5,
+      "stage": "clear-to-close",
+      "stageSince": "2026-08-10",
+      "openedOn": "2026-06-25",
+      "closingDate": "2026-08-24",
+      "source": "open-house",
+      "escrowOfficer": "Curtis Boyle",
+      "lender": "Pacific Crest Lending",
+      "titleOfficer": "Renata Cho",
+      "risks": [],
+      "notes": [],
+      "timeline": [
+        {
+          "id": "evt_s008",
+          "label": "Cleared to close",
+          "at": "2026-08-11T00:56:00.000Z",
+          "kind": "stage"
+        },
+        {
+          "id": "evt_s009",
+          "label": "HOA documents received and approved",
+          "at": "2026-08-08T00:03:00.000Z",
+          "kind": "document"
+        },
+        {
+          "id": "evt_s010",
+          "label": "Transaction opened",
+          "at": "2026-06-25T23:10:00.000Z",
+          "kind": "system"
+        }
+      ]
+    },
+    {
+      "id": "deal_s004",
+      "fileNumber": "FA-2026-1044",
+      "clientName": "Warren Pike",
+      "clientEmail": "wpike@pikeandsons.com",
+      "clientPhone": "7145550177",
+      "side": "sell",
+      "address": "210 Marigold Avenue",
+      "city": "Costa Mesa",
+      "state": "CA",
+      "zip": "92627",
+      "propertyType": "Single family",
+      "price": 1120000,
+      "commissionRate": 2.5,
+      "stage": "title-escrow",
+      "stageSince": "2026-08-07",
+      "openedOn": "2026-07-13",
+      "closingDate": "2026-09-07",
+      "source": "referral",
+      "escrowOfficer": "Dana Whitfield",
+      "lender": "Union Federal Savings",
+      "titleOfficer": "Renata Cho",
+      "risks": [
+        "title-exception"
+      ],
+      "notes": [
+        {
+          "id": "note_s003",
+          "body": "Preliminary report shows an old mechanics lien from a 2019 remodel. Renata is chasing the release.",
+          "createdAt": "2026-07-17T04:33:00.000Z",
+          "author": "Marisol Reyes"
+        },
+        {
+          "id": "note_s004",
+          "body": "Warren is anxious about this one \u2014 he has a purchase contingent on it closing. Call him Monday either way.",
+          "createdAt": "2026-07-21T04:44:00.000Z",
+          "author": "Marisol Reyes"
+        }
+      ],
+      "timeline": [
+        {
+          "id": "evt_s011",
+          "label": "Title exception raised",
+          "at": "2026-08-10T00:17:00.000Z",
+          "kind": "risk"
+        },
+        {
+          "id": "evt_s012",
+          "label": "Escrow opened",
+          "at": "2026-08-05T00:24:00.000Z",
+          "kind": "stage"
+        },
+        {
+          "id": "evt_s013",
+          "label": "Preliminary report received",
+          "at": "2026-08-04T00:31:00.000Z",
+          "kind": "document"
+        },
+        {
+          "id": "evt_s014",
+          "label": "Transaction opened",
+          "at": "2026-07-13T23:38:00.000Z",
+          "kind": "system"
+        }
+      ]
+    },
+    {
+      "id": "deal_s005",
+      "fileNumber": "FA-2026-1045",
+      "clientName": "Jun-seo Park",
+      "clientEmail": "junseo.park@gmail.com",
+      "clientPhone": "6575550164",
+      "side": "buy",
+      "address": "58 Heliotrope Way",
+      "city": "Irvine",
+      "state": "CA",
+      "zip": "92620",
+      "propertyType": "Townhouse",
+      "price": 895000,
+      "commissionRate": 2.5,
+      "stage": "title-escrow",
+      "stageSince": "2026-08-11",
+      "openedOn": "2026-07-18",
+      "closingDate": "2026-09-11",
+      "source": "listing-site",
+      "escrowOfficer": "Alma Serrano",
+      "lender": "Vantage Home Loans",
+      "titleOfficer": "Renata Cho",
+      "risks": [
+        "wire-fraud-unconfirmed"
+      ],
+      "notes": [
+        {
+          "id": "note_s005",
+          "body": "First-time buyer. Walked him through the fraud protection guidance \u2014 he has NOT yet done the verbal callback with escrow. Chase.",
+          "createdAt": "2026-07-22T04:55:00.000Z",
+          "author": "Marisol Reyes"
+        }
+      ],
+      "timeline": [
+        {
+          "id": "evt_s015",
+          "label": "Flagged: wire fraud unconfirmed",
+          "at": "2026-08-14T00:45:00.000Z",
+          "kind": "risk"
+        },
+        {
+          "id": "evt_s016",
+          "label": "Escrow opened",
+          "at": "2026-08-12T00:52:00.000Z",
+          "kind": "stage"
+        },
+        {
+          "id": "evt_s017",
+          "label": "Inspection completed, minor items",
+          "at": "2026-08-06T00:59:00.000Z",
+          "kind": "document"
+        },
+        {
+          "id": "evt_s018",
+          "label": "Transaction opened",
+          "at": "2026-07-18T23:06:00.000Z",
+          "kind": "system"
+        }
+      ]
+    },
+    {
+      "id": "deal_s006",
+      "fileNumber": "FA-2026-1046",
+      "clientName": "Bernadette Kohl",
+      "clientEmail": "b.kohl@kohldesign.co",
+      "clientPhone": "9495550198",
+      "side": "buy",
+      "address": "1180 Del Amo Boulevard",
+      "city": "Anaheim",
+      "state": "CA",
+      "zip": "92805",
+      "propertyType": "Single family",
+      "price": 742000,
+      "commissionRate": 2.5,
+      "stage": "title-escrow",
+      "stageSince": "2026-08-02",
+      "openedOn": "2026-07-03",
+      "closingDate": "2026-09-02",
+      "source": "sphere",
+      "escrowOfficer": "Priya Raghunathan",
+      "lender": "Cypress Bank",
+      "titleOfficer": "Miguel Ochoa",
+      "risks": [
+        "appraisal-gap"
+      ],
+      "notes": [
+        {
+          "id": "note_s006",
+          "body": "Appraisal came in $28k under. Bernadette will cover half in cash if the seller meets her there. Waiting on listing agent.",
+          "createdAt": "2026-07-07T04:06:00.000Z",
+          "author": "Marisol Reyes"
+        }
+      ],
+      "timeline": [
+        {
+          "id": "evt_s019",
+          "label": "Appraisal below contract price",
+          "at": "2026-08-09T00:13:00.000Z",
+          "kind": "risk"
+        },
+        {
+          "id": "evt_s020",
+          "label": "Escrow opened",
+          "at": "2026-08-03T00:20:00.000Z",
+          "kind": "stage"
+        },
+        {
+          "id": "evt_s021",
+          "label": "Transaction opened",
+          "at": "2026-07-03T23:27:00.000Z",
+          "kind": "system"
+        }
+      ]
+    },
+    {
+      "id": "deal_s007",
+      "fileNumber": "FA-2026-1047",
+      "clientName": "Tobias Amundsen",
+      "clientEmail": "tamundsen@mac.com",
+      "clientPhone": "7145550135",
+      "side": "sell",
+      "address": "644 Larkspur Terrace",
+      "city": "Orange",
+      "state": "CA",
+      "zip": "92866",
+      "propertyType": "Single family",
+      "price": 968000,
+      "commissionRate": 2.5,
+      "stage": "title-escrow",
+      "stageSince": "2026-08-13",
+      "openedOn": "2026-07-22",
+      "closingDate": "2026-09-14",
+      "source": "referral",
+      "escrowOfficer": "Curtis Boyle",
+      "lender": "Harborline Mortgage",
+      "titleOfficer": "Bette Lindqvist",
+      "risks": [],
+      "notes": [],
+      "timeline": [
+        {
+          "id": "evt_s022",
+          "label": "Escrow opened",
+          "at": "2026-08-14T00:34:00.000Z",
+          "kind": "stage"
+        },
+        {
+          "id": "evt_s023",
+          "label": "Offer accepted",
+          "at": "2026-08-10T00:41:00.000Z",
+          "kind": "stage"
+        },
+        {
+          "id": "evt_s024",
+          "label": "Transaction opened",
+          "at": "2026-07-22T23:48:00.000Z",
+          "kind": "system"
+        }
+      ]
+    },
+    {
+      "id": "deal_s008",
+      "fileNumber": "FA-2026-1048",
+      "clientName": "Yvette Marchetti",
+      "clientEmail": "yvette.m@gmail.com",
+      "clientPhone": "7145550171",
+      "side": "buy",
+      "address": "9 Sandpiper Circle",
+      "city": "Newport Beach",
+      "state": "CA",
+      "zip": "92663",
+      "propertyType": "Condominium",
+      "price": 1395000,
+      "commissionRate": 2.5,
+      "stage": "title-escrow",
+      "stageSince": "2026-07-28",
+      "openedOn": "2026-06-19",
+      "closingDate": "2026-08-28",
+      "source": "repeat-client",
+      "escrowOfficer": "Dana Whitfield",
+      "lender": "Pacific Crest Lending",
+      "titleOfficer": "Renata Cho",
+      "risks": [
+        "title-exception",
+        "docs-outstanding"
+      ],
+      "notes": [
+        {
+          "id": "note_s007",
+          "body": "Easement dispute with the neighbouring lot. Renata says it is resolvable but it will not be fast.",
+          "createdAt": "2026-06-23T04:17:00.000Z",
+          "author": "Marisol Reyes"
+        }
+      ],
+      "timeline": [
+        {
+          "id": "evt_s025",
+          "label": "Title exception raised",
+          "at": "2026-08-01T00:55:00.000Z",
+          "kind": "risk"
+        },
+        {
+          "id": "evt_s026",
+          "label": "Escrow opened",
+          "at": "2026-07-29T00:02:00.000Z",
+          "kind": "stage"
+        },
+        {
+          "id": "evt_s027",
+          "label": "Transaction opened",
+          "at": "2026-06-19T23:09:00.000Z",
+          "kind": "system"
+        }
+      ]
+    },
+    {
+      "id": "deal_s009",
+      "fileNumber": "FA-2026-1049",
+      "clientName": "Kwame Osei",
+      "clientEmail": "k.osei@oseiventures.com",
+      "clientPhone": "9495550156",
+      "side": "buy",
+      "address": "3311 Fairhaven Avenue",
+      "city": "Santa Ana",
+      "state": "CA",
+      "zip": "92705",
+      "propertyType": "Multi-family",
+      "price": 1875000,
+      "commissionRate": 2.5,
+      "stage": "under-contract",
+      "stageSince": "2026-08-10",
+      "openedOn": "2026-07-27",
+      "closingDate": "2026-09-26",
+      "source": "referral",
+      "escrowOfficer": "Alma Serrano",
+      "lender": "Union Federal Savings",
+      "titleOfficer": "Miguel Ochoa",
+      "risks": [],
+      "notes": [
+        {
+          "id": "note_s008",
+          "body": "Investor \u2014 this is his third property with us. Wants a 1031 conversation before close; flag to NCS.",
+          "createdAt": "2026-07-31T04:28:00.000Z",
+          "author": "Marisol Reyes"
+        }
+      ],
+      "timeline": [
+        {
+          "id": "evt_s028",
+          "label": "Offer accepted",
+          "at": "2026-08-11T00:16:00.000Z",
+          "kind": "stage"
+        },
+        {
+          "id": "evt_s029",
+          "label": "Inspection scheduled",
+          "at": "2026-08-13T00:23:00.000Z",
+          "kind": "document"
+        },
+        {
+          "id": "evt_s030",
+          "label": "Transaction opened",
+          "at": "2026-07-27T23:30:00.000Z",
+          "kind": "system"
+        }
+      ]
+    },
+    {
+      "id": "deal_s010",
+      "fileNumber": "FA-2026-1050",
+      "clientName": "Petra Lindgren",
+      "clientEmail": "petra.lindgren@proton.me",
+      "clientPhone": "7145550188",
+      "side": "buy",
+      "address": "812 Almond Grove Drive",
+      "city": "Tustin",
+      "state": "CA",
+      "zip": "92782",
+      "propertyType": "Single family",
+      "price": 1045000,
+      "commissionRate": 2.5,
+      "stage": "under-contract",
+      "stageSince": "2026-08-05",
+      "openedOn": "2026-07-14",
+      "closingDate": "2026-09-19",
+      "source": "open-house",
+      "escrowOfficer": "Priya Raghunathan",
+      "lender": "Harborline Mortgage",
+      "titleOfficer": "Bette Lindqvist",
+      "risks": [
+        "financing-at-risk"
+      ],
+      "notes": [
+        {
+          "id": "note_s009",
+          "body": "Lender flagged a gap in her employment history \u2014 she changed jobs six weeks ago. Underwriting wants a letter of explanation plus two pay stubs.",
+          "createdAt": "2026-07-18T04:39:00.000Z",
+          "author": "Marisol Reyes"
+        }
+      ],
+      "timeline": [
+        {
+          "id": "evt_s031",
+          "label": "Financing condition raised",
+          "at": "2026-08-13T00:37:00.000Z",
+          "kind": "risk"
+        },
+        {
+          "id": "evt_s032",
+          "label": "Offer accepted",
+          "at": "2026-08-06T00:44:00.000Z",
+          "kind": "stage"
+        },
+        {
+          "id": "evt_s033",
+          "label": "Transaction opened",
+          "at": "2026-07-14T23:51:00.000Z",
+          "kind": "system"
+        }
+      ]
+    },
+    {
+      "id": "deal_s011",
+      "fileNumber": "FA-2026-1051",
+      "clientName": "Ibrahim Chaudhry",
+      "clientEmail": "ibrahim.c@gmail.com",
+      "clientPhone": "6575550122",
+      "side": "sell",
+      "address": "1507 Sycamore Street",
+      "city": "Anaheim",
+      "state": "CA",
+      "zip": "92806",
+      "propertyType": "Single family",
+      "price": 688000,
+      "commissionRate": 2.5,
+      "stage": "under-contract",
+      "stageSince": "2026-08-14",
+      "openedOn": "2026-07-29",
+      "closingDate": "2026-09-29",
+      "source": "website",
+      "escrowOfficer": "Dana Whitfield",
+      "lender": "Vantage Home Loans",
+      "titleOfficer": "Renata Cho",
+      "risks": [],
+      "notes": [],
+      "timeline": [
+        {
+          "id": "evt_s034",
+          "label": "Offer accepted",
+          "at": "2026-08-15T00:58:00.000Z",
+          "kind": "stage"
+        },
+        {
+          "id": "evt_s035",
+          "label": "Listing went live",
+          "at": "2026-07-30T00:05:00.000Z",
+          "kind": "system"
+        },
+        {
+          "id": "evt_s036",
+          "label": "Transaction opened",
+          "at": "2026-07-29T23:12:00.000Z",
+          "kind": "system"
+        }
+      ]
+    },
+    {
+      "id": "deal_s012",
+      "fileNumber": "FA-2026-1052",
+      "clientName": "Marguerite Dubois",
+      "clientEmail": "m.dubois@dubois-arch.com",
+      "clientPhone": "9495550147",
+      "side": "buy",
+      "address": "26 Coastline Bluff",
+      "city": "Laguna Beach",
+      "state": "CA",
+      "zip": "92651",
+      "propertyType": "Single family",
+      "price": 2450000,
+      "commissionRate": 2.5,
+      "stage": "under-contract",
+      "stageSince": "2026-08-08",
+      "openedOn": "2026-07-07",
+      "closingDate": "2026-09-22",
+      "source": "referral",
+      "escrowOfficer": "Curtis Boyle",
+      "lender": "Cash \u2014 no financing",
+      "titleOfficer": "Miguel Ochoa",
+      "risks": [],
+      "notes": [
+        {
+          "id": "note_s010",
+          "body": "Cash purchase, no financing contingency. Fastest path we have this quarter.",
+          "createdAt": "2026-07-11T04:50:00.000Z",
+          "author": "Marisol Reyes"
+        }
+      ],
+      "timeline": [
+        {
+          "id": "evt_s037",
+          "label": "Offer accepted",
+          "at": "2026-08-09T00:19:00.000Z",
+          "kind": "stage"
+        },
+        {
+          "id": "evt_s038",
+          "label": "Proof of funds verified",
+          "at": "2026-08-08T00:26:00.000Z",
+          "kind": "document"
+        },
+        {
+          "id": "evt_s039",
+          "label": "Transaction opened",
+          "at": "2026-07-07T23:33:00.000Z",
+          "kind": "system"
+        }
+      ]
+    },
+    {
+      "id": "deal_s013",
+      "fileNumber": "FA-2026-1053",
+      "clientName": "Nathaniel Boahen",
+      "clientEmail": "nboahen@outlook.com",
+      "clientPhone": "7145550193",
+      "side": "buy",
+      "address": "445 Rosewood Court",
+      "city": "Costa Mesa",
+      "state": "CA",
+      "zip": "92626",
+      "propertyType": "Townhouse",
+      "price": 799000,
+      "commissionRate": 2.5,
+      "stage": "under-contract",
+      "stageSince": "2026-07-31",
+      "openedOn": "2026-07-10",
+      "closingDate": "2026-09-09",
+      "source": "sphere",
+      "escrowOfficer": "Alma Serrano",
+      "lender": "Pacific Crest Lending",
+      "titleOfficer": "Bette Lindqvist",
+      "risks": [
+        "docs-outstanding"
+      ],
+      "notes": [
+        {
+          "id": "note_s011",
+          "body": "Still waiting on the HOA resale package. Third request sent Tuesday.",
+          "createdAt": "2026-07-14T04:01:00.000Z",
+          "author": "Marisol Reyes"
+        }
+      ],
+      "timeline": [
+        {
+          "id": "evt_s040",
+          "label": "Offer accepted",
+          "at": "2026-08-01T00:40:00.000Z",
+          "kind": "stage"
+        },
+        {
+          "id": "evt_s041",
+          "label": "Transaction opened",
+          "at": "2026-07-10T23:47:00.000Z",
+          "kind": "system"
+        }
+      ]
+    },
+    {
+      "id": "deal_s014",
+      "fileNumber": "FA-2026-1054",
+      "clientName": "Solveig Hansen",
+      "clientEmail": "solveig.h@icloud.com",
+      "clientPhone": "7145550110",
+      "side": "sell",
+      "address": "90 Terrace Vista",
+      "city": "Orange",
+      "state": "CA",
+      "zip": "92869",
+      "propertyType": "Single family",
+      "price": 1210000,
+      "commissionRate": 2.5,
+      "stage": "under-contract",
+      "stageSince": "2026-08-12",
+      "openedOn": "2026-07-25",
+      "closingDate": "2026-09-24",
+      "source": "repeat-client",
+      "escrowOfficer": "Priya Raghunathan",
+      "lender": "Union Federal Savings",
+      "titleOfficer": "Renata Cho",
+      "risks": [],
+      "notes": [],
+      "timeline": [
+        {
+          "id": "evt_s042",
+          "label": "Offer accepted",
+          "at": "2026-08-13T00:54:00.000Z",
+          "kind": "stage"
+        },
+        {
+          "id": "evt_s043",
+          "label": "Three offers received",
+          "at": "2026-08-11T00:01:00.000Z",
+          "kind": "message"
+        },
+        {
+          "id": "evt_s044",
+          "label": "Transaction opened",
+          "at": "2026-07-25T23:08:00.000Z",
+          "kind": "system"
+        }
+      ]
+    },
+    {
+      "id": "deal_s015",
+      "fileNumber": "FA-2026-1055",
+      "clientName": "Constance Whitmore",
+      "clientEmail": "c.whitmore@gmail.com",
+      "clientPhone": "9495550166",
+      "side": "buy",
+      "address": "Searching \u2014 Irvine / Tustin",
+      "city": "Irvine",
+      "state": "CA",
+      "zip": "",
+      "propertyType": "Single family",
+      "price": 950000,
+      "commissionRate": 2.5,
+      "stage": "lead",
+      "stageSince": "2026-08-13",
+      "openedOn": "2026-08-13",
+      "closingDate": "",
+      "source": "open-house",
+      "escrowOfficer": "Dana Whitfield",
+      "lender": "Pacific Crest Lending",
+      "titleOfficer": "Renata Cho",
+      "risks": [],
+      "notes": [
+        {
+          "id": "note_s012",
+          "body": "Met at the Heliotrope open house. Pre-approved to $980k. Wants a 4-bed with a yard, school district matters.",
+          "createdAt": "2026-08-17T04:12:00.000Z",
+          "author": "Marisol Reyes"
+        }
+      ],
+      "timeline": [
+        {
+          "id": "evt_s045",
+          "label": "Added as lead",
+          "at": "2026-08-14T00:15:00.000Z",
+          "kind": "system"
+        },
+        {
+          "id": "evt_s046",
+          "label": "Transaction opened",
+          "at": "2026-08-13T23:22:00.000Z",
+          "kind": "system"
+        }
+      ]
+    },
+    {
+      "id": "deal_s016",
+      "fileNumber": "FA-2026-1056",
+      "clientName": "Emeka Nwosu",
+      "clientEmail": "emeka.nwosu@gmail.com",
+      "clientPhone": "7145550151",
+      "side": "buy",
+      "address": "Searching \u2014 Santa Ana",
+      "city": "Santa Ana",
+      "state": "CA",
+      "zip": "",
+      "propertyType": "Condominium",
+      "price": 540000,
+      "commissionRate": 2.5,
+      "stage": "lead",
+      "stageSince": "2026-07-26",
+      "openedOn": "2026-07-26",
+      "closingDate": "",
+      "source": "website",
+      "escrowOfficer": "Priya Raghunathan",
+      "lender": "Vantage Home Loans",
+      "titleOfficer": "Miguel Ochoa",
+      "risks": [],
+      "notes": [
+        {
+          "id": "note_s013",
+          "body": "Enquired through the site three weeks ago, went quiet after the first two showings. Worth one more call before I let it go.",
+          "createdAt": "2026-07-30T04:23:00.000Z",
+          "author": "Marisol Reyes"
+        }
+      ],
+      "timeline": [
+        {
+          "id": "evt_s047",
+          "label": "Added as lead",
+          "at": "2026-07-27T00:29:00.000Z",
+          "kind": "system"
+        },
+        {
+          "id": "evt_s048",
+          "label": "Transaction opened",
+          "at": "2026-07-26T23:36:00.000Z",
+          "kind": "system"
+        }
+      ]
+    },
+    {
+      "id": "deal_s017",
+      "fileNumber": "FA-2026-1057",
+      "clientName": "Harriet Blackwood",
+      "clientEmail": "h.blackwood@blackwoodco.com",
+      "clientPhone": "6575550174",
+      "side": "sell",
+      "address": "1902 Juniper Hill Road",
+      "city": "Villa Park",
+      "state": "CA",
+      "zip": "92861",
+      "propertyType": "Single family",
+      "price": 1950000,
+      "commissionRate": 2.5,
+      "stage": "lead",
+      "stageSince": "2026-08-10",
+      "openedOn": "2026-08-10",
+      "closingDate": "",
+      "source": "referral",
+      "escrowOfficer": "Curtis Boyle",
+      "lender": "Harborline Mortgage",
+      "titleOfficer": "Bette Lindqvist",
+      "risks": [],
+      "notes": [
+        {
+          "id": "note_s014",
+          "body": "Listing appointment done. She is interviewing two other agents. Send the comparable analysis and the fee breakdown by Friday.",
+          "createdAt": "2026-08-14T04:34:00.000Z",
+          "author": "Marisol Reyes"
+        }
+      ],
+      "timeline": [
+        {
+          "id": "evt_s049",
+          "label": "Listing appointment held",
+          "at": "2026-08-11T00:43:00.000Z",
+          "kind": "message"
+        },
+        {
+          "id": "evt_s050",
+          "label": "Added as lead",
+          "at": "2026-08-09T00:50:00.000Z",
+          "kind": "system"
+        },
+        {
+          "id": "evt_s051",
+          "label": "Transaction opened",
+          "at": "2026-08-10T23:57:00.000Z",
+          "kind": "system"
+        }
+      ]
+    },
+    {
+      "id": "deal_s018",
+      "fileNumber": "FA-2026-1058",
+      "clientName": "Rafael Montoya",
+      "clientEmail": "rafa.montoya@gmail.com",
+      "clientPhone": "7145550129",
+      "side": "buy",
+      "address": "Searching \u2014 Costa Mesa",
+      "city": "Costa Mesa",
+      "state": "CA",
+      "zip": "",
+      "propertyType": "Townhouse",
+      "price": 720000,
+      "commissionRate": 2.5,
+      "stage": "lead",
+      "stageSince": "2026-08-15",
+      "openedOn": "2026-08-15",
+      "closingDate": "",
+      "source": "listing-site",
+      "escrowOfficer": "Alma Serrano",
+      "lender": "Cypress Bank",
+      "titleOfficer": "Renata Cho",
+      "risks": [],
+      "notes": [],
+      "timeline": [
+        {
+          "id": "evt_s052",
+          "label": "Added as lead",
+          "at": "2026-08-16T00:04:00.000Z",
+          "kind": "system"
+        },
+        {
+          "id": "evt_s053",
+          "label": "Transaction opened",
+          "at": "2026-08-15T23:11:00.000Z",
+          "kind": "system"
+        }
+      ]
+    },
+    {
+      "id": "deal_s019",
+      "fileNumber": "FA-2026-1059",
+      "clientName": "Gwendolyn Achterberg",
+      "clientEmail": "gwen.a@proton.me",
+      "clientPhone": "9495550138",
+      "side": "sell",
+      "address": "38 Meadowlark Lane",
+      "city": "Tustin",
+      "state": "CA",
+      "zip": "92780",
+      "propertyType": "Single family",
+      "price": 1080000,
+      "commissionRate": 2.5,
+      "stage": "lead",
+      "stageSince": "2026-08-04",
+      "openedOn": "2026-08-04",
+      "closingDate": "",
+      "source": "sphere",
+      "escrowOfficer": "Dana Whitfield",
+      "lender": "Union Federal Savings",
+      "titleOfficer": "Miguel Ochoa",
+      "risks": [],
+      "notes": [
+        {
+          "id": "note_s015",
+          "body": "Thinking about listing in the spring. Not urgent \u2014 put her on the quarterly market update.",
+          "createdAt": "2026-08-08T04:45:00.000Z",
+          "author": "Marisol Reyes"
+        }
+      ],
+      "timeline": [
+        {
+          "id": "evt_s054",
+          "label": "Added as lead",
+          "at": "2026-08-05T00:18:00.000Z",
+          "kind": "system"
+        },
+        {
+          "id": "evt_s055",
+          "label": "Transaction opened",
+          "at": "2026-08-04T23:25:00.000Z",
+          "kind": "system"
+        }
+      ]
+    },
+    {
+      "id": "deal_s020",
+      "fileNumber": "FA-2026-1060",
+      "clientName": "Priscilla Oyelaran",
+      "clientEmail": "p.oyelaran@gmail.com",
+      "clientPhone": "7145550105",
+      "side": "buy",
+      "address": "705 Bayberry Street",
+      "city": "Santa Ana",
+      "state": "CA",
+      "zip": "92707",
+      "propertyType": "Single family",
+      "price": 825000,
+      "commissionRate": 2.5,
+      "stage": "closed",
+      "stageSince": "2026-08-07",
+      "openedOn": "2026-06-03",
+      "closingDate": "2026-08-07",
+      "source": "referral",
+      "escrowOfficer": "Priya Raghunathan",
+      "lender": "Harborline Mortgage",
+      "titleOfficer": "Renata Cho",
+      "risks": [],
+      "notes": [
+        {
+          "id": "note_s016",
+          "body": "Closed clean. She has already referred her sister \u2014 new lead added.",
+          "createdAt": "2026-06-07T04:56:00.000Z",
+          "author": "Marisol Reyes"
+        }
+      ],
+      "timeline": [
+        {
+          "id": "evt_s056",
+          "label": "Funded and recorded",
+          "at": "2026-08-08T00:32:00.000Z",
+          "kind": "stage"
+        },
+        {
+          "id": "evt_s057",
+          "label": "Signing completed",
+          "at": "2026-08-06T00:39:00.000Z",
+          "kind": "document"
+        },
+        {
+          "id": "evt_s058",
+          "label": "Transaction opened",
+          "at": "2026-06-03T23:46:00.000Z",
+          "kind": "system"
+        }
+      ]
+    },
+    {
+      "id": "deal_s021",
+      "fileNumber": "FA-2026-1061",
+      "clientName": "Hugo Vandermeer",
+      "clientEmail": "hugo.v@vandermeer.nl",
+      "clientPhone": "9495550183",
+      "side": "buy",
+      "address": "141 Alderwood Place",
+      "city": "Irvine",
+      "state": "CA",
+      "zip": "92604",
+      "propertyType": "Townhouse",
+      "price": 1060000,
+      "commissionRate": 2.5,
+      "stage": "closed",
+      "stageSince": "2026-07-24",
+      "openedOn": "2026-05-20",
+      "closingDate": "2026-07-24",
+      "source": "listing-site",
+      "escrowOfficer": "Dana Whitfield",
+      "lender": "Vantage Home Loans",
+      "titleOfficer": "Miguel Ochoa",
+      "risks": [],
+      "notes": [],
+      "timeline": [
+        {
+          "id": "evt_s059",
+          "label": "Funded and recorded",
+          "at": "2026-07-25T00:53:00.000Z",
+          "kind": "stage"
+        },
+        {
+          "id": "evt_s060",
+          "label": "Transaction opened",
+          "at": "2026-05-20T23:00:00.000Z",
+          "kind": "system"
+        }
+      ]
+    },
+    {
+      "id": "deal_s022",
+      "fileNumber": "FA-2026-1062",
+      "clientName": "Delphine Okonkwo",
+      "clientEmail": "d.okonkwo@gmail.com",
+      "clientPhone": "7145550162",
+      "side": "sell",
+      "address": "2200 Flower Street",
+      "city": "Santa Ana",
+      "state": "CA",
+      "zip": "92706",
+      "propertyType": "Single family",
+      "price": 690000,
+      "commissionRate": 2.5,
+      "stage": "closed",
+      "stageSince": "2026-07-16",
+      "openedOn": "2026-05-12",
+      "closingDate": "2026-07-16",
+      "source": "repeat-client",
+      "escrowOfficer": "Curtis Boyle",
+      "lender": "Pacific Crest Lending",
+      "titleOfficer": "Bette Lindqvist",
+      "risks": [],
+      "notes": [
+        {
+          "id": "note_s017",
+          "body": "Third transaction with Delphine. Send the closing gift and ask for a review.",
+          "createdAt": "2026-05-16T04:07:00.000Z",
+          "author": "Marisol Reyes"
+        }
+      ],
+      "timeline": [
+        {
+          "id": "evt_s061",
+          "label": "Funded and recorded",
+          "at": "2026-07-17T00:07:00.000Z",
+          "kind": "stage"
+        },
+        {
+          "id": "evt_s062",
+          "label": "Transaction opened",
+          "at": "2026-05-12T23:14:00.000Z",
+          "kind": "system"
+        }
+      ]
+    },
+    {
+      "id": "deal_s023",
+      "fileNumber": "FA-2026-1063",
+      "clientName": "Anton Reyes-Salgado",
+      "clientEmail": "anton.rs@icloud.com",
+      "clientPhone": "6575550190",
+      "side": "buy",
+      "address": "19 Cobblestone Way",
+      "city": "Orange",
+      "state": "CA",
+      "zip": "92867",
+      "propertyType": "Single family",
+      "price": 915000,
+      "commissionRate": 2.5,
+      "stage": "closed",
+      "stageSince": "2026-07-03",
+      "openedOn": "2026-04-26",
+      "closingDate": "2026-07-03",
+      "source": "open-house",
+      "escrowOfficer": "Alma Serrano",
+      "lender": "Union Federal Savings",
+      "titleOfficer": "Renata Cho",
+      "risks": [],
+      "notes": [],
+      "timeline": [
+        {
+          "id": "evt_s063",
+          "label": "Funded and recorded",
+          "at": "2026-07-04T00:21:00.000Z",
+          "kind": "stage"
+        },
+        {
+          "id": "evt_s064",
+          "label": "Transaction opened",
+          "at": "2026-04-26T23:28:00.000Z",
+          "kind": "system"
+        }
+      ]
+    },
+    {
+      "id": "deal_s024",
+      "fileNumber": "FA-2026-1064",
+      "clientName": "Marisela Quintanilla",
+      "clientEmail": "m.quintanilla@gmail.com",
+      "clientPhone": "7145550116",
+      "side": "buy",
+      "address": "860 Poinsettia Avenue",
+      "city": "Costa Mesa",
+      "state": "CA",
+      "zip": "92627",
+      "propertyType": "Condominium",
+      "price": 585000,
+      "commissionRate": 2.5,
+      "stage": "closed",
+      "stageSince": "2026-06-19",
+      "openedOn": "2026-04-13",
+      "closingDate": "2026-06-19",
+      "source": "website",
+      "escrowOfficer": "Priya Raghunathan",
+      "lender": "Cypress Bank",
+      "titleOfficer": "Miguel Ochoa",
+      "risks": [],
+      "notes": [],
+      "timeline": [
+        {
+          "id": "evt_s065",
+          "label": "Funded and recorded",
+          "at": "2026-06-20T00:35:00.000Z",
+          "kind": "stage"
+        },
+        {
+          "id": "evt_s066",
+          "label": "Transaction opened",
+          "at": "2026-04-13T23:42:00.000Z",
+          "kind": "system"
+        }
+      ]
+    },
+    {
+      "id": "deal_s025",
+      "fileNumber": "FA-2026-1065",
+      "clientName": "Fitzgerald Umeh",
+      "clientEmail": "fitz.umeh@outlook.com",
+      "clientPhone": "9495550144",
+      "side": "sell",
+      "address": "55 Ridgeline Drive",
+      "city": "Anaheim Hills",
+      "state": "CA",
+      "zip": "92807",
+      "propertyType": "Single family",
+      "price": 1340000,
+      "commissionRate": 2.5,
+      "stage": "closed",
+      "stageSince": "2026-06-10",
+      "openedOn": "2026-03-28",
+      "closingDate": "2026-06-10",
+      "source": "referral",
+      "escrowOfficer": "Dana Whitfield",
+      "lender": "Harborline Mortgage",
+      "titleOfficer": "Bette Lindqvist",
+      "risks": [],
+      "notes": [],
+      "timeline": [
+        {
+          "id": "evt_s067",
+          "label": "Funded and recorded",
+          "at": "2026-06-11T00:49:00.000Z",
+          "kind": "stage"
+        },
+        {
+          "id": "evt_s068",
+          "label": "Transaction opened",
+          "at": "2026-03-28T22:56:00.000Z",
+          "kind": "system"
+        }
+      ]
+    },
+    {
+      "id": "deal_s026",
+      "fileNumber": "FA-2026-1066",
+      "clientName": "Cordelia Vance",
+      "clientEmail": "c.vance@vancelaw.com",
+      "clientPhone": "7145550158",
+      "side": "buy",
+      "address": "412 Hawthorne Street",
+      "city": "Tustin",
+      "state": "CA",
+      "zip": "92780",
+      "propertyType": "Single family",
+      "price": 1150000,
+      "commissionRate": 2.5,
+      "stage": "fell-through",
+      "stageSince": "2026-07-20",
+      "openedOn": "2026-06-07",
+      "closingDate": "",
+      "source": "referral",
+      "escrowOfficer": "Curtis Boyle",
+      "lender": "Pacific Crest Lending",
+      "titleOfficer": "Renata Cho",
+      "risks": [],
+      "notes": [
+        {
+          "id": "note_s018",
+          "body": "Inspection found foundation movement. She walked, and she was right to. Still looking \u2014 keep her warm.",
+          "createdAt": "2026-06-11T04:18:00.000Z",
+          "author": "Marisol Reyes"
+        }
+      ],
+      "timeline": [
+        {
+          "id": "evt_s069",
+          "label": "Transaction terminated",
+          "at": "2026-07-21T00:03:00.000Z",
+          "kind": "stage"
+        },
+        {
+          "id": "evt_s070",
+          "label": "Inspection report received",
+          "at": "2026-07-18T00:10:00.000Z",
+          "kind": "document"
+        },
+        {
+          "id": "evt_s071",
+          "label": "Transaction opened",
+          "at": "2026-06-07T23:17:00.000Z",
+          "kind": "system"
+        }
+      ]
+    },
+    {
+      "id": "deal_s027",
+      "fileNumber": "FA-2026-1067",
+      "clientName": "Barnaby Ellsworth",
+      "clientEmail": "b.ellsworth@gmail.com",
+      "clientPhone": "6575550107",
+      "side": "buy",
+      "address": "1030 Sunflower Avenue",
+      "city": "Santa Ana",
+      "state": "CA",
+      "zip": "92704",
+      "propertyType": "Condominium",
+      "price": 498000,
+      "commissionRate": 2.5,
+      "stage": "fell-through",
+      "stageSince": "2026-06-28",
+      "openedOn": "2026-05-24",
+      "closingDate": "",
+      "source": "website",
+      "escrowOfficer": "Alma Serrano",
+      "lender": "Vantage Home Loans",
+      "titleOfficer": "Miguel Ochoa",
+      "risks": [],
+      "notes": [
+        {
+          "id": "note_s019",
+          "body": "Financing fell over at the last minute \u2014 undisclosed debt surfaced in the final verification.",
+          "createdAt": "2026-05-28T04:29:00.000Z",
+          "author": "Marisol Reyes"
+        }
+      ],
+      "timeline": [
+        {
+          "id": "evt_s072",
+          "label": "Transaction terminated",
+          "at": "2026-06-29T00:24:00.000Z",
+          "kind": "stage"
+        },
+        {
+          "id": "evt_s073",
+          "label": "Loan denied",
+          "at": "2026-06-27T00:31:00.000Z",
+          "kind": "risk"
+        },
+        {
+          "id": "evt_s074",
+          "label": "Transaction opened",
+          "at": "2026-05-24T23:38:00.000Z",
+          "kind": "system"
+        }
+      ]
+    }
+  ],
+  "contacts": [
+    {
+      "id": "contact_s001",
+      "name": "Dana Whitfield",
+      "email": "dana.whitfield@meridiantitle.com",
+      "phone": "7145552210",
+      "role": "escrow",
+      "company": "Meridian Title & Escrow",
+      "city": "Santa Ana",
+      "dealIds": [
+        "deal_s001",
+        "deal_s004",
+        "deal_s008",
+        "deal_s011",
+        "deal_s015",
+        "deal_s019",
+        "deal_s021",
+        "deal_s025"
+      ],
+      "addedOn": "2026-03-29"
+    },
+    {
+      "id": "contact_s002",
+      "name": "Priya Raghunathan",
+      "email": "priya.r@meridiantitle.com",
+      "phone": "7145552244",
+      "role": "escrow",
+      "company": "Meridian Title & Escrow",
+      "city": "Santa Ana",
+      "dealIds": [
+        "deal_s002",
+        "deal_s006",
+        "deal_s010",
+        "deal_s014",
+        "deal_s016",
+        "deal_s020",
+        "deal_s024"
+      ],
+      "addedOn": "2026-04-04"
+    },
+    {
+      "id": "contact_s003",
+      "name": "Curtis Boyle",
+      "email": "curtis.boyle@meridiantitle.com",
+      "phone": "7145552271",
+      "role": "escrow",
+      "company": "Meridian Title & Escrow",
+      "city": "Irvine",
+      "dealIds": [
+        "deal_s003",
+        "deal_s007",
+        "deal_s012",
+        "deal_s017",
+        "deal_s022",
+        "deal_s026"
+      ],
+      "addedOn": "2026-04-10"
+    },
+    {
+      "id": "contact_s004",
+      "name": "Alma Serrano",
+      "email": "alma.serrano@meridiantitle.com",
+      "phone": "7145552209",
+      "role": "escrow",
+      "company": "Meridian Title & Escrow",
+      "city": "Irvine",
+      "dealIds": [
+        "deal_s005",
+        "deal_s009",
+        "deal_s013",
+        "deal_s018",
+        "deal_s023",
+        "deal_s027"
+      ],
+      "addedOn": "2026-04-16"
+    },
+    {
+      "id": "contact_s005",
+      "name": "Renata Cho",
+      "email": "renata.cho@meridiantitle.com",
+      "phone": "7145552133",
+      "role": "escrow",
+      "company": "Meridian Title & Escrow \u2014 Underwriting",
+      "city": "Santa Ana",
+      "dealIds": [
+        "deal_s001",
+        "deal_s003",
+        "deal_s004",
+        "deal_s005",
+        "deal_s008",
+        "deal_s011",
+        "deal_s014",
+        "deal_s015",
+        "deal_s018",
+        "deal_s020",
+        "deal_s023",
+        "deal_s026"
+      ],
+      "addedOn": "2026-04-22"
+    },
+    {
+      "id": "contact_s006",
+      "name": "Miguel Ochoa",
+      "email": "miguel.ochoa@meridiantitle.com",
+      "phone": "7145552188",
+      "role": "escrow",
+      "company": "Meridian Title & Escrow \u2014 Underwriting",
+      "city": "Orange",
+      "dealIds": [
+        "deal_s002",
+        "deal_s006",
+        "deal_s009",
+        "deal_s012",
+        "deal_s016",
+        "deal_s019",
+        "deal_s021",
+        "deal_s024",
+        "deal_s027"
+      ],
+      "addedOn": "2026-04-28"
+    },
+    {
+      "id": "contact_s007",
+      "name": "Bette Lindqvist",
+      "email": "bette.lindqvist@meridiantitle.com",
+      "phone": "7145552150",
+      "role": "escrow",
+      "company": "Meridian Title & Escrow \u2014 Underwriting",
+      "city": "Irvine",
+      "dealIds": [
+        "deal_s007",
+        "deal_s010",
+        "deal_s013",
+        "deal_s017",
+        "deal_s022",
+        "deal_s025"
+      ],
+      "addedOn": "2026-05-04"
+    },
+    {
+      "id": "contact_s008",
+      "name": "Sondra Pell",
+      "email": "spell@harborlinemtg.com",
+      "phone": "9495553301",
+      "role": "lender",
+      "company": "Harborline Mortgage",
+      "city": "Newport Beach",
+      "dealIds": [
+        "deal_s001",
+        "deal_s007",
+        "deal_s010",
+        "deal_s017",
+        "deal_s020",
+        "deal_s025"
+      ],
+      "addedOn": "2026-05-10"
+    },
+    {
+      "id": "contact_s009",
+      "name": "Terrence Ubbelohde",
+      "email": "t.ubbelohde@paccrest.com",
+      "phone": "9495553388",
+      "role": "lender",
+      "company": "Pacific Crest Lending",
+      "city": "Irvine",
+      "dealIds": [
+        "deal_s003",
+        "deal_s008",
+        "deal_s013",
+        "deal_s015",
+        "deal_s022",
+        "deal_s026"
+      ],
+      "addedOn": "2026-05-16"
+    },
+    {
+      "id": "contact_s010",
+      "name": "Fatima Belkacem",
+      "email": "f.belkacem@unionfed.com",
+      "phone": "7145553412",
+      "role": "lender",
+      "company": "Union Federal Savings",
+      "city": "Santa Ana",
+      "dealIds": [
+        "deal_s004",
+        "deal_s009",
+        "deal_s014",
+        "deal_s019",
+        "deal_s023"
+      ],
+      "addedOn": "2026-05-22"
+    },
+    {
+      "id": "contact_s011",
+      "name": "Grady Milburn",
+      "email": "grady@vantagehome.com",
+      "phone": "6575553460",
+      "role": "lender",
+      "company": "Vantage Home Loans",
+      "city": "Tustin",
+      "dealIds": [
+        "deal_s005",
+        "deal_s011",
+        "deal_s016",
+        "deal_s021",
+        "deal_s027"
+      ],
+      "addedOn": "2026-05-28"
+    },
+    {
+      "id": "contact_s012",
+      "name": "Xiomara Delacruz",
+      "email": "x.delacruz@cypressbank.com",
+      "phone": "7145553477",
+      "role": "lender",
+      "company": "Cypress Bank",
+      "city": "Costa Mesa",
+      "dealIds": [
+        "deal_s006",
+        "deal_s018",
+        "deal_s024"
+      ],
+      "addedOn": "2026-06-03"
+    },
+    {
+      "id": "contact_s013",
+      "name": "Roland Pettigrew",
+      "email": "roland@pettigrewrealty.com",
+      "phone": "9495554120",
+      "role": "co-agent",
+      "company": "Pettigrew Realty Group",
+      "city": "Newport Beach",
+      "dealIds": [
+        "deal_s002",
+        "deal_s014"
+      ],
+      "addedOn": "2026-06-09"
+    },
+    {
+      "id": "contact_s014",
+      "name": "Coralie Nwachukwu",
+      "email": "coralie@bluffsideprop.com",
+      "phone": "9495554177",
+      "role": "co-agent",
+      "company": "Bluffside Properties",
+      "city": "Laguna Beach",
+      "dealIds": [
+        "deal_s012"
+      ],
+      "addedOn": "2026-06-15"
+    },
+    {
+      "id": "contact_s015",
+      "name": "Stellan Ivarsson",
+      "email": "stellan@ivarssonhomes.com",
+      "phone": "7145554203",
+      "role": "co-agent",
+      "company": "Ivarsson Homes",
+      "city": "Orange",
+      "dealIds": [
+        "deal_s007",
+        "deal_s004"
+      ],
+      "addedOn": "2026-06-21"
+    },
+    {
+      "id": "contact_s016",
+      "name": "Adaeze Mbakwe",
+      "email": "adaeze@mbakwe-law.com",
+      "phone": "7145554890",
+      "role": "attorney",
+      "company": "Mbakwe & Associates",
+      "city": "Santa Ana",
+      "dealIds": [
+        "deal_s009"
+      ],
+      "addedOn": "2026-06-27"
+    },
+    {
+      "id": "contact_s017",
+      "name": "Julien Sarraf",
+      "email": "julien.sarraf@gmail.com",
+      "phone": "9495556012",
+      "role": "buyer",
+      "company": "",
+      "city": "Irvine",
+      "dealIds": [],
+      "addedOn": "2026-07-03"
+    },
+    {
+      "id": "contact_s018",
+      "name": "Wilhelmina Braithwaite",
+      "email": "w.braithwaite@icloud.com",
+      "phone": "7145556077",
+      "role": "seller",
+      "company": "",
+      "city": "Tustin",
+      "dealIds": [],
+      "addedOn": "2026-07-09"
+    },
+    {
+      "id": "contact_s019",
+      "name": "Oluwaseun Adeyemi",
+      "email": "seun.adeyemi@gmail.com",
+      "phone": "6575556134",
+      "role": "buyer",
+      "company": "",
+      "city": "Anaheim",
+      "dealIds": [],
+      "addedOn": "2026-07-15"
+    },
+    {
+      "id": "contact_s020",
+      "name": "Genevieve Thorsby",
+      "email": "g.thorsby@outlook.com",
+      "phone": "7145556198",
+      "role": "seller",
+      "company": "",
+      "city": "Costa Mesa",
+      "dealIds": [],
+      "addedOn": "2026-07-21"
+    },
+    {
+      "id": "contact_s021",
+      "name": "Casimir Wojcik",
+      "email": "cas.wojcik@proton.me",
+      "phone": "9495556240",
+      "role": "buyer",
+      "company": "",
+      "city": "Newport Beach",
+      "dealIds": [],
+      "addedOn": "2026-07-27"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task_s001",
+      "title": "Call Jun-seo \u2014 verbal callback on wire instructions",
+      "dealId": "deal_s005",
+      "dueDate": "2026-08-15",
+      "done": false,
+      "kind": "compliance"
+    },
+    {
+      "id": "task_s002",
+      "title": "Chase mechanics lien release for Warren Pike",
+      "dealId": "deal_s004",
+      "dueDate": "2026-08-16",
+      "done": false,
+      "kind": "document"
+    },
+    {
+      "id": "task_s003",
+      "title": "Send comparable analysis to Harriet Blackwood",
+      "dealId": "deal_s017",
+      "dueDate": "2026-08-17",
+      "done": false,
+      "kind": "follow-up"
+    },
+    {
+      "id": "task_s004",
+      "title": "Confirm mobile notary for Desmond Ferrell signing",
+      "dealId": "deal_s002",
+      "dueDate": "2026-08-17",
+      "done": false,
+      "kind": "call"
+    },
+    {
+      "id": "task_s005",
+      "title": "Letter of explanation from Petra \u2014 employment gap",
+      "dealId": "deal_s010",
+      "dueDate": "2026-08-18",
+      "done": false,
+      "kind": "document"
+    },
+    {
+      "id": "task_s006",
+      "title": "Third request: HOA resale package, Nathaniel Boahen",
+      "dealId": "deal_s013",
+      "dueDate": "2026-08-18",
+      "done": false,
+      "kind": "document"
+    },
+    {
+      "id": "task_s007",
+      "title": "Appraisal gap \u2014 call listing agent on Del Amo",
+      "dealId": "deal_s006",
+      "dueDate": "2026-08-19",
+      "done": false,
+      "kind": "call"
+    },
+    {
+      "id": "task_s008",
+      "title": "Book 1031 conversation for Kwame Osei with NCS",
+      "dealId": "deal_s009",
+      "dueDate": "2026-08-21",
+      "done": false,
+      "kind": "follow-up"
+    },
+    {
+      "id": "task_s009",
+      "title": "Follow up with Emeka before archiving the lead",
+      "dealId": "deal_s016",
+      "dueDate": "2026-08-22",
+      "done": false,
+      "kind": "call"
+    },
+    {
+      "id": "task_s010",
+      "title": "Showing \u2014 3 properties with Constance Whitmore",
+      "dealId": "deal_s015",
+      "dueDate": "2026-08-20",
+      "done": false,
+      "kind": "showing"
+    },
+    {
+      "id": "task_s011",
+      "title": "Send closing gift + review request to Delphine",
+      "dealId": "deal_s022",
+      "dueDate": "2026-08-07",
+      "done": false,
+      "kind": "follow-up"
+    },
+    {
+      "id": "task_s012",
+      "title": "Easement update to Yvette Marchetti",
+      "dealId": "deal_s008",
+      "dueDate": "2026-08-19",
+      "done": false,
+      "kind": "call"
+    },
+    {
+      "id": "task_s013",
+      "title": "Quarterly market update to Gwendolyn",
+      "dealId": "deal_s019",
+      "dueDate": "2026-09-06",
+      "done": false,
+      "kind": "follow-up"
+    },
+    {
+      "id": "task_s014",
+      "title": "Confirm signing time with Alicia Nakamura",
+      "dealId": "deal_s001",
+      "dueDate": "2026-08-14",
+      "done": true,
+      "kind": "call"
+    },
+    {
+      "id": "task_s015",
+      "title": "Order preliminary report \u2014 Larkspur Terrace",
+      "dealId": "deal_s007",
+      "dueDate": "2026-08-13",
+      "done": true,
+      "kind": "document"
+    },
+    {
+      "id": "task_s016",
+      "title": "Send fee estimate to Rafael Montoya",
+      "dealId": "deal_s018",
+      "dueDate": "2026-08-16",
+      "done": false,
+      "kind": "follow-up"
+    },
+    {
+      "id": "task_s017",
+      "title": "Block out Friday afternoon for CE credits",
+      "dealId": null,
+      "dueDate": "2026-08-27",
+      "done": false,
+      "kind": "follow-up"
+    }
+  ]
+}

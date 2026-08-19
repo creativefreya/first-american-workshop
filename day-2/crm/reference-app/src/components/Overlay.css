@@ -1,0 +1,172 @@
+/* Overlay, Drawer, Modal ---------------------------------------------------
+   Shared behaviour in .overlay, appearance in the two variants below. */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-drawer);
+}
+
+.overlay--modal { z-index: var(--z-modal); }
+
+body.is-overlay-open {
+  overflow: hidden;
+}
+
+.drawer__backdrop,
+.modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgb(0 23 44 / 0.32);
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--ease-out);
+}
+
+.overlay.is-open .drawer__backdrop,
+.overlay.is-open .modal__backdrop { opacity: 1; }
+
+.overlay.is-closing .drawer__backdrop,
+.overlay.is-closing .modal__backdrop { opacity: 0; }
+
+/* Drawer ------------------------------------------------------------------- */
+
+.drawer__panel {
+  position: absolute;
+  inset: 0 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: min(var(--drawer-width), 100vw);
+  background: var(--surface);
+  box-shadow: var(--shadow-lg);
+  transform: translateX(100%);
+  transition: transform var(--duration-slow) var(--ease-out);
+}
+
+.overlay.is-open .drawer__panel { transform: translateX(0); }
+
+.overlay.is-closing .drawer__panel { transform: translateX(100%); }
+
+.drawer__header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--border-base);
+  background: var(--surface);
+}
+
+.drawer__heading { flex: 1; min-width: 0; }
+
+.drawer__title {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--text-primary);
+}
+
+.drawer__subtitle {
+  margin-top: 2px;
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+.drawer__header-aside {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding-top: 2px;
+}
+
+.drawer__body {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.drawer__footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-5);
+  border-top: 1px solid var(--border-base);
+  background: var(--surface-sunken);
+}
+
+/* Modal -------------------------------------------------------------------- */
+
+.modal__panel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  width: min(560px, calc(100vw - var(--space-8)));
+  max-height: min(80vh, 720px);
+  border-radius: var(--radius-card);
+  background: var(--surface);
+  box-shadow: var(--shadow-lg);
+  transform: translate(-50%, calc(-50% + 8px));
+  opacity: 0;
+  transition:
+    transform var(--duration-base) var(--ease-out),
+    opacity var(--duration-base) var(--ease-out);
+}
+
+.modal__panel--sm { width: min(420px, calc(100vw - var(--space-8))); }
+
+.overlay.is-open .modal__panel {
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+
+.overlay.is-closing .modal__panel {
+  transform: translate(-50%, calc(-50% + 8px));
+  opacity: 0;
+}
+
+.modal__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5) var(--space-3);
+}
+
+.modal__title {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-tight);
+}
+
+.modal__description {
+  margin-top: 2px;
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+.modal__body {
+  flex: 1;
+  padding: 0 var(--space-5) var(--space-5);
+  overflow-y: auto;
+}
+
+.modal__prose {
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+  color: var(--text-secondary);
+}
+
+.modal__footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-5);
+  border-top: 1px solid var(--border-base);
+  background: var(--surface-sunken);
+  border-radius: 0 0 var(--radius-card) var(--radius-card);
+}
+
+@media (max-width: 640px) {
+  .drawer__panel { width: 100vw; }
+}
