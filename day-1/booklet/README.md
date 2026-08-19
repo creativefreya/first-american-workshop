@@ -42,8 +42,9 @@ node build.mjs
 ```
 
 `node build.mjs --html` skips the PDF when you only want to eyeball the layout.
-`node audit.mjs` flags any page whose content overflows its 297×210mm box —
-run it after editing copy in `content.js`.
+`node audit.mjs` runs two checks and you want both: page overflow in the DOM,
+**and** whether the PDF's text pages still contain text. Run it after every copy
+edit. The second check is not paranoia — see Gotchas.
 
 ## Files
 
@@ -65,5 +66,11 @@ run it after editing copy in `content.js`.
   resolves, or `npm i playwright && npx playwright install chromium` first.
 - **Activity numbering and "Activity N of X" are derived** from the length of the
   `activities` array. Adding or merging one needs no other edit.
+- **Screen rendering is not evidence about the PDF.** `.conn-body` was once
+  `flex:1` with `min-height:0`. Correct on screen, collapsed to zero height in
+  Chromium's print renderer — the entire appendix table vanished from the PDF
+  while every HTML preview looked perfect. Avoid `flex:1` + `min-height:0` on a
+  container that has to survive print, and check the built PDF, not the page:
+  `pdftoppm -png -r 100 -f N -l N <pdf> /tmp/pg`.
 - **The PDF is ~22 MB.** That's the 52 slide screenshots. Dropping the JPEG
   quality in step 3 is the lever if it needs to be smaller for email.

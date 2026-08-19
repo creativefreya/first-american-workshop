@@ -467,12 +467,15 @@ code{font-family:var(--mono);font-size:.86em;background:rgba(154,91,176,.10);
 
 /* appendix — what to connect next */
 .conn-head{flex:0 0 auto;max-width:190mm}
-.connect .body{margin-bottom:4mm;font-size:10pt;max-width:178mm}
-.conn-body{flex:1;display:grid;grid-template-columns:1.55fr 1fr;gap:12mm;align-content:center;padding:2mm 0;min-height:0}
+.connect .body{margin-bottom:3mm;font-size:10pt;max-width:178mm}
+/* NOT flex:1 + min-height:0. That renders on screen and collapses to zero
+   height in print — the whole table vanished from the PDF while the HTML
+   preview looked correct. Plain auto-height grid, verified against the PDF. */
+.conn-body{display:grid;grid-template-columns:1.55fr 1fr;gap:12mm;align-items:center}
 .conn{width:100%;border-collapse:collapse;font-size:9.4pt}
 .conn th{font-family:var(--pixel);font-size:5.4pt;letter-spacing:.1em;text-transform:uppercase;
   color:var(--ink-muted);text-align:left;padding:0 3mm 3mm 0;border-bottom:1px solid var(--border)}
-.conn td{padding:2.6mm 3mm 2.6mm 0;border-bottom:1px solid rgba(27,22,51,.07);vertical-align:top}
+.conn td{padding:2.3mm 3mm 2.3mm 0;border-bottom:1px solid rgba(27,22,51,.07);vertical-align:top}
 .conn td.c-tool{font-weight:600;white-space:nowrap}
 .conn th.c-tool{width:32mm}
 .conn td.c-what{color:var(--ink-soft);line-height:1.42;font-size:9pt}
