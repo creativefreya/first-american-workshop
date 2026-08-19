@@ -2,7 +2,7 @@
 import { chromium } from 'playwright';
 import fs from 'fs';
 const files = fs.readdirSync('thumbs').filter(f => f.endsWith('.jpg')).sort();
-const LABEL = { 0:'Cover',1:'Goals + agenda',2:'Activity tips',3:'Getting help',4:'How to use',62:'Before Day 2' };
+const LABEL = { 0:'Cover',1:'Goals + agenda',2:'Activity tips',3:'Getting help',4:'How to use',62:'Before Day 2',63:'What to connect next' };
 const ACT = { 37:'ACTIVITY 1', 38:'ACTIVITY 2', 48:'ACTIVITY 3', 60:'ACTIVITY 4', 61:'ACTIVITY 5' };
 const cells = files.map((f, i) => `
   <figure class="${ACT[i] ? 'act' : ''}">
@@ -25,7 +25,7 @@ const html = `<!doctype html><meta charset="utf-8">
  .tag{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.06em;color:#c25680}
 </style>
 <h1>First American — Day 1 booklet</h1>
-<p class="sub">63 pages · A4 landscape · pink outlines are the five activity pages</p>
+<p class="sub">64 pages · A4 landscape · pink outlines are the five activity pages</p>
 <div class="grid">${cells}</div>`;
 fs.writeFileSync('sheet.html', html);
 const b = await chromium.launch();

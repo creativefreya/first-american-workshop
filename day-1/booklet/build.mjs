@@ -287,6 +287,46 @@ const closing = page(
 );
 body.push(closing);
 
+/* Final reference page — what to wire into Cursor after the day. Deliberately
+   last: it is a lookup, not part of the run. Tools are First American's approved
+   stack only (see DELIVERY-CONSTRAINTS.md). */
+const K = C.connections;
+const connectPage = page(
+  'plain connect',
+  `${runningHead('Appendix', 'What to connect next')}
+  <div class="conn-head">
+    <p class="kicker">// ${esc(K.kicker)}</p>
+    <h2>${esc(K.title)}</h2>
+    <p class="body">${esc(K.standfirst)}</p>
+  </div>
+  <div class="conn-body">
+    <table class="conn">
+      <thead><tr>${K.columns
+        .map((c, i) => `<th class="${['c-tool', 'c-via', 'c-what'][i]}">${esc(c)}</th>`)
+        .join('')}</tr></thead>
+      <tbody>${K.rows
+        .map(
+          (r) =>
+            `<tr>
+              <td class="c-tool">${esc(r[0])}</td>
+              <td class="c-via"><span class="tag tag-${r[1].toLowerCase()}">${esc(r[1])}</span></td>
+              <td class="c-what">${esc(r[2])}</td>
+            </tr>`
+        )
+        .join('')}</tbody>
+    </table>
+    <div class="conn-side">
+      <div class="callout">
+        <p class="callout-t">${esc(K.explainer.title)}</p>
+        <p>${K.explainer.mcp}</p>
+        <p class="callout-gap">${K.explainer.api}</p>
+      </div>
+      <p class="conn-caveat">${esc(K.caveat)}</p>
+    </div>
+  </div>`
+);
+body.push(connectPage);
+
 /* ── styles ─────────────────────────────────────────────────────────────── */
 
 const css = `
@@ -377,6 +417,8 @@ code{font-family:var(--mono);font-size:.86em;background:rgba(154,91,176,.10);
   box-shadow:0 8px 24px -18px rgba(40,38,55,.5)}
 .callout-t{font-family:var(--display);font-size:12.5pt;font-weight:600;margin-bottom:2.2mm}
 .callout p{font-size:10.6pt;line-height:1.55;color:var(--ink-soft)}
+.connect .callout{padding:5mm 5.5mm;margin-bottom:5mm}
+.connect .callout p{font-size:9.8pt;line-height:1.5}
 
 .numsteps{list-style:none;counter-reset:s}
 .numsteps li{counter-increment:s;position:relative;padding-left:10.5mm;margin-bottom:4.6mm;
@@ -422,6 +464,27 @@ code{font-family:var(--mono);font-size:.86em;background:rgba(154,91,176,.10);
 .tips-note{flex:0 0 auto;margin-bottom:0;padding:4.4mm 5mm}
 .tips-note .callout-t{font-size:11pt;margin-bottom:1.6mm}
 .tips-note p{font-size:9.8pt}
+
+/* appendix — what to connect next */
+.conn-head{flex:0 0 auto;max-width:190mm}
+.connect .body{margin-bottom:0;font-size:10pt;max-width:185mm}
+.conn-body{flex:1;display:grid;grid-template-columns:1.55fr 1fr;gap:12mm;align-content:center;padding:4mm 0;min-height:0}
+.conn{width:100%;border-collapse:collapse;font-size:9.4pt}
+.conn th{font-family:var(--pixel);font-size:5.4pt;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-muted);text-align:left;padding:0 3mm 3mm 0;border-bottom:1px solid var(--border)}
+.conn td{padding:2.6mm 3mm 2.6mm 0;border-bottom:1px solid rgba(27,22,51,.07);vertical-align:top}
+.conn td.c-tool{font-weight:600;white-space:nowrap}
+.conn th.c-tool{width:32mm}
+.conn th.c-via{width:17mm}
+.conn td.c-what{color:var(--ink-soft);line-height:1.42;font-size:9pt}
+.tag{display:inline-block;font-family:var(--mono);font-size:7.4pt;letter-spacing:.04em;
+  padding:.9mm 2.2mm;border-radius:1.2mm}
+.tag-mcp{background:rgba(11,158,138,.13);color:#08776a;border:1px solid rgba(11,158,138,.30)}
+.tag-api{background:rgba(224,86,31,.11);color:#c2481a;border:1px solid rgba(224,86,31,.28)}
+.conn-side{display:flex;flex-direction:column;justify-content:center}
+.callout-gap{margin-top:3.2mm}
+.conn-caveat{font-size:9.4pt;line-height:1.5;color:var(--ink-muted);padding-left:4mm;
+  border-left:1px solid var(--border)}
 
 /* activity pages */
 .activity{background:linear-gradient(to top,#f6ecf1 0%,#fdfbfc 100%)}

@@ -1,6 +1,6 @@
 # Day 1 participant booklet
 
-`First-American-Day-1-Booklet.pdf` — A4 landscape, 63 pages. Every Day 1 slide in
+`First-American-Day-1-Booklet.pdf` — A4 landscape, 64 pages. Every Day 1 slide in
 running order, one per page with a notes lane, plus the housekeeping pages and
 the six hands-on activities dropped in where the room actually does them.
 
@@ -15,6 +15,7 @@ the six hands-on activities dropped in where the room actually does them.
 | 5 | How to use the booklet + the five activities |
 | 6–62 | The 52 Day 1 slides, with the five activity pages interleaved (38, 39, 49, 61, 62) |
 | 63 | Before Day 2 |
+| 64 | Appendix — what to connect next (MCP vs API, First American's approved stack) |
 
 Activities land after these Day 1 slide indices: 1 and 2 → 31 (Explore the AI
 Brain), 3 → 40 (Create a SKILL.md), 4 and 5 → 51 (Build automations). Two

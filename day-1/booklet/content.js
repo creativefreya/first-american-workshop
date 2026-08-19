@@ -201,3 +201,37 @@ All files should document a URL or ID to the original Confluence doc so I can tr
 Don't modify any other files outside the Confluence folder.`,
   },
 ];
+
+/**
+ * Closing reference page — the tools worth wiring into Cursor after the workshop.
+ * Scoped to First American's approved stack (Jira · Confluence · SharePoint ·
+ * Slack · GitHub · Miro · Figma · FigJam), see DELIVERY-CONSTRAINTS.md in the
+ * Augmented Designer repo. Do not add tools outside that list.
+ */
+export const connections = {
+  kicker: 'Command Centre Power Up · Level 4',
+  title: 'What to connect next',
+  standfirst:
+    'Cursor ships MCPs for most of the tools you already work in. Connect them once — Customise → search the tool → authenticate — and every chat after that can read from them and write back.',
+  columns: ['Tool', 'Via', 'What it gives you'],
+  rows: [
+    ['Jira', 'MCP', 'Read tickets, priorities and projects. Write updates back.'],
+    ['Confluence', 'MCP', 'Specs and docs as context. Same Atlassian connection as Jira — one auth covers both.'],
+    ['Slack', 'MCP', 'Search threads for the decision that never made it into a doc. Post updates back.'],
+    ['Miro', 'MCP', 'Pull board content — flows, workshop output — down as text you can work with.'],
+    ['Figma', 'MCP', 'Turn a frame into a written spec, and check what is actually built against it.'],
+    ['FigJam', 'MCP', 'Same Figma connection. Boards and stickies become readable context.'],
+    ['GitHub', 'MCP', 'Repos, issues and pull requests. Useful the moment Day 2 starts.'],
+    ['SharePoint', 'API', 'No first-party MCP yet. Microsoft Graph API does the same job.'],
+    ['Microsoft Teams', 'API', 'Also Microsoft Graph. Same setup as SharePoint, same conversation with IT.'],
+  ],
+  explainer: {
+    title: 'MCP or API — what is the difference?',
+    mcp:
+      '<strong>MCP</strong> is a connector Cursor already understands. You authenticate once in Customise and it is available in every chat from then on. No code, no engineer, about two minutes.',
+    api:
+      '<strong>API</strong> means the calls get written by hand — by you with Cursor’s help, or by an engineer. More setup and more control, and it is the route whenever no MCP exists yet.',
+  },
+  caveat:
+    'SharePoint and Teams both sit behind Microsoft Graph, which needs an app registration your IT team has to approve. Worth starting that conversation early rather than the morning you need it.',
+};
