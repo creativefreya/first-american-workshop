@@ -51,6 +51,13 @@ you launch your own app"* without a detour through business logic.
 
 ---
 
+## Reference
+
+`docs/cursor-connection-options.md` — MCP vs API vs CLI vs native integrations,
+tool by tool across First American's approved stack, with the distinctions that
+come up in the room (a native Slack integration and a Slack MCP are not the same
+feature) and the security lines worth having ready.
+
 ## Related repos
 
 | | |

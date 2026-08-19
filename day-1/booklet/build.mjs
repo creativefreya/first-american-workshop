@@ -309,7 +309,7 @@ const connectPage = page(
           (r) =>
             `<tr>
               <td class="c-tool">${esc(r[0])}</td>
-              <td class="c-via"><span class="tag tag-${r[1].toLowerCase()}">${esc(r[1])}</span></td>
+              <td class="c-via"><span class="tag tag-${r[1].toLowerCase().replace(/[^a-z]/g, '') || 'mcp'}${r[1].includes('*') ? ' tag-pending' : ''}">${esc(r[1])}</span></td>
               <td class="c-what">${esc(r[2])}</td>
             </tr>`
         )
@@ -467,20 +467,23 @@ code{font-family:var(--mono);font-size:.86em;background:rgba(154,91,176,.10);
 
 /* appendix — what to connect next */
 .conn-head{flex:0 0 auto;max-width:190mm}
-.connect .body{margin-bottom:0;font-size:10pt;max-width:185mm}
-.conn-body{flex:1;display:grid;grid-template-columns:1.55fr 1fr;gap:12mm;align-content:center;padding:4mm 0;min-height:0}
+.connect .body{margin-bottom:4mm;font-size:10pt;max-width:178mm}
+.conn-body{flex:1;display:grid;grid-template-columns:1.55fr 1fr;gap:12mm;align-content:center;padding:2mm 0;min-height:0}
 .conn{width:100%;border-collapse:collapse;font-size:9.4pt}
 .conn th{font-family:var(--pixel);font-size:5.4pt;letter-spacing:.1em;text-transform:uppercase;
   color:var(--ink-muted);text-align:left;padding:0 3mm 3mm 0;border-bottom:1px solid var(--border)}
 .conn td{padding:2.6mm 3mm 2.6mm 0;border-bottom:1px solid rgba(27,22,51,.07);vertical-align:top}
 .conn td.c-tool{font-weight:600;white-space:nowrap}
 .conn th.c-tool{width:32mm}
-.conn th.c-via{width:17mm}
 .conn td.c-what{color:var(--ink-soft);line-height:1.42;font-size:9pt}
 .tag{display:inline-block;font-family:var(--mono);font-size:7.4pt;letter-spacing:.04em;
   padding:.9mm 2.2mm;border-radius:1.2mm}
 .tag-mcp{background:rgba(11,158,138,.13);color:#08776a;border:1px solid rgba(11,158,138,.30)}
 .tag-api{background:rgba(224,86,31,.11);color:#c2481a;border:1px solid rgba(224,86,31,.28)}
+.tag-pending{background:rgba(224,86,31,.11);color:#c2481a;border:1px solid rgba(224,86,31,.28)}
+.tag-builtin{background:rgba(75,100,196,.11);color:#3d55ad;border:1px solid rgba(75,100,196,.30);
+  letter-spacing:0}
+.conn th.c-via{width:21mm}
 .conn-side{display:flex;flex-direction:column;justify-content:center}
 .callout-gap{margin-top:3.2mm}
 .conn-caveat{font-size:9.4pt;line-height:1.5;color:var(--ink-muted);padding-left:4mm;
