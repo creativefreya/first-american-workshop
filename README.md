@@ -1,7 +1,7 @@
 # First American — Becoming an Augmented Designer
 
 Workshop materials for the two-day First American training. Facilitator notes,
-participant handouts, and the CRM prototypes the room builds against.
+participant steps, and the CRM prototypes the room builds against.
 
 **Facilitators:** Freya Stockman · Alex Zinoviev
 **Format:** 4 hours per day · 12:00–4:00pm PDT / 9:00am–1:00pm HST / 5:00–9:00am AU
@@ -11,26 +11,11 @@ participant handouts, and the CRM prototypes the room builds against.
 ## What's here
 
 ```
-day-1/
-└── booklet/          The participant workbook — every Day 1 slide, with the
-                      activities interleaved. Ships as a PDF.
 day-2/
 └── crm/              Build and ship a CRM. Reference app, website mockup,
                       facilitator notes, participant steps.
+docs/                 Reference material for the room.
 ```
-
-### Day 1 — the booklet
-
-`day-1/booklet/First-American-Day-1-Booklet.pdf` — 63 pages, A4 landscape. One
-page per slide in running order with a notes lane, the housekeeping pages from
-the FigJam board up front, and the five hands-on activities dropped in at the
-point in the run where the room actually does them.
-
-`day-1-booklet-contact-sheet.png` shows all 63 pages at a glance — the fastest
-way to check the shape of the day.
-
-The slides are screenshots of the live React deck, so the booklet can't drift
-from what gets presented. See `day-1/booklet/README.md` for the build.
 
 ### Day 2 — the CRM
 
@@ -69,7 +54,10 @@ feature) and the security lines worth having ready.
 
 - **The Day 1 planning docs in the Augmented Designer repo are stale.** They
   describe an earlier deck build. The React deck is the source of truth for
-  content, and this booklet is generated from it.
+  content.
+- **The Day 1 participant booklet is no longer published here.** It lives in the
+  Augmented Designer repo at `workshop-materials/booklet/`, which is where it is
+  built and where the PDF is generated.
 - **The reference app has no build step and no dependencies.** Open
   `day-2/crm/reference-app/index.html` in a browser, or serve the folder. If
   something wants `npm install`, it's the wrong folder.
